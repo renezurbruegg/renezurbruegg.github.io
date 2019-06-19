@@ -1,0 +1,2367 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>test-app documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">test-app documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>EditorComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/editor/editor.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/AfterViewInit" target="_blank" >AfterViewInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-editor</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./editor.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./editor.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#appConfig">appConfig</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#data">data</a>
+                            </li>
+                            <li>
+                                <a href="#editor">editor</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#options">options</a>
+                            </li>
+                            <li>
+                                <a href="#schema">schema</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngAfterViewInit">ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#onSavePressed">onSavePressed</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(appConfig: <a href="../injectables/AppConfig.html">AppConfig</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="871" class="link-to-prism">src/app/editor/editor.component.ts:871</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>appConfig</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AppConfig.html" target="_self" >AppConfig</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <b>
+                            ngAfterViewInit
+                        </b>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="892"
+                            class="link-to-prism">src/app/editor/editor.component.ts:892</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSavePressed"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            onSavePressed
+                        </b>
+                        <a href="#onSavePressed"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onSavePressed()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="887"
+                            class="link-to-prism">src/app/editor/editor.component.ts:887</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Converts the content of the editor into a json object and sends it to the backend to store.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="appConfig"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            appConfig</b>
+                            <a href="#appConfig"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../injectables/AppConfig.html" target="_self" >AppConfig</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="874" class="link-to-prism">src/app/editor/editor.component.ts:874</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="data"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            data</b>
+                            <a href="#data"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../injectables/AppConfig.html" target="_self" >IAppConfig</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="871" class="link-to-prism">src/app/editor/editor.component.ts:871</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Stores the data which is displayed and edited in the json editor</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="editor"></a>
+                        <span class="name">
+                            <b>
+                            editor</b>
+                            <a href="#editor"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../components/EditorComponent.html" target="_self" >JsonEditorComponent</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(JsonEditorComponent)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="862" class="link-to-prism">src/app/editor/editor.component.ts:862</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>The editor used to edit the json file.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="options"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            options</b>
+                            <a href="#options"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new JsonEditorOptions()</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="867" class="link-to-prism">src/app/editor/editor.component.ts:867</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="schema"></a>
+                        <span class="name">
+                            <b>
+                            schema</b>
+                            <a href="#schema"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+     &quot;definitions&quot;: {},
+     &quot;$schema&quot;: &quot;http://json-schema.org/draft-07/schema#&quot;,
+     &quot;$id&quot;: &quot;http://example.com/root.json&quot;,
+     &quot;type&quot;: &quot;object&quot;,
+     &quot;title&quot;: &quot;The Root Schema&quot;,
+     &quot;required&quot;: [
+       &quot;charts&quot;,
+       &quot;supplies&quot;,
+      &quot;devices&quot;,
+      &quot;general&quot;,
+      &quot;deployment&quot;
+    ],
+    &quot;properties&quot;: {
+      &quot;charts&quot;: {
+        &quot;$id&quot;: &quot;#/properties/charts&quot;,
+        &quot;type&quot;: &quot;array&quot;,
+        &quot;title&quot;: &quot;The Charts Schema&quot;,
+        &quot;items&quot;: {
+          &quot;$id&quot;: &quot;#/properties/charts/items&quot;,
+          &quot;type&quot;: &quot;object&quot;,
+          &quot;title&quot;: &quot;The Items Schema&quot;,
+          &quot;required&quot;: [
+            &quot;col&quot;,
+            &quot;chartId&quot;,
+            &quot;axes&quot;,
+            &quot;datasets&quot;,
+            &quot;maxValues&quot;,
+            &quot;name&quot;
+          ],
+          &quot;properties&quot;: {
+            &quot;col&quot;: {
+              &quot;$id&quot;: &quot;#/properties/charts/items/properties/col&quot;,
+              &quot;type&quot;: &quot;object&quot;,
+              &quot;title&quot;: &quot;The Col Schema&quot;,
+              &quot;required&quot;: [
+                &quot;xs&quot;,
+                &quot;md&quot;,
+                &quot;sm&quot;,
+                &quot;lg&quot;
+              ],
+              &quot;properties&quot;: {
+                &quot;xs&quot;: {
+                  &quot;$id&quot;: &quot;#/properties/charts/items/properties/col/properties/xs&quot;,
+                  &quot;type&quot;: &quot;integer&quot;,
+                  &quot;title&quot;: &quot;The Xs Schema&quot;,
+                  &quot;default&quot;: 0,
+                  &quot;examples&quot;: [
+                    12
+                  ]
+                },
+                &quot;md&quot;: {
+                  &quot;$id&quot;: &quot;#/properties/charts/items/properties/col/properties/md&quot;,
+                  &quot;type&quot;: &quot;integer&quot;,
+                  &quot;title&quot;: &quot;The Md Schema&quot;,
+                  &quot;default&quot;: 0,
+                  &quot;examples&quot;: [
+                    12
+                  ]
+                },
+                &quot;sm&quot;: {
+                  &quot;$id&quot;: &quot;#/properties/charts/items/properties/col/properties/sm&quot;,
+                  &quot;type&quot;: &quot;integer&quot;,
+                  &quot;title&quot;: &quot;The Sm Schema&quot;,
+                  &quot;default&quot;: 0,
+                  &quot;examples&quot;: [
+                    12
+                  ]
+                },
+                &quot;lg&quot;: {
+                  &quot;$id&quot;: &quot;#/properties/charts/items/properties/col/properties/lg&quot;,
+                  &quot;type&quot;: &quot;integer&quot;,
+                  &quot;title&quot;: &quot;The Lg Schema&quot;,
+                  &quot;default&quot;: 0,
+                  &quot;examples&quot;: [
+                    6
+                  ]
+                }
+              }
+            },
+            &quot;chartId&quot;: {
+              &quot;$id&quot;: &quot;#/properties/charts/items/properties/chartId&quot;,
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;title&quot;: &quot;The Chartid Schema&quot;,
+              &quot;default&quot;: &quot;&quot;,
+              &quot;examples&quot;: [
+                &quot;Chart#1&quot;
+              ],
+              &quot;pattern&quot;: &quot;^(.*)$&quot;
+            },
+            &quot;axes&quot;: {
+              &quot;$id&quot;: &quot;#/properties/charts/items/properties/axes&quot;,
+              &quot;type&quot;: &quot;array&quot;,
+              &quot;title&quot;: &quot;The Axes Schema&quot;,
+              &quot;items&quot;: {
+                &quot;$id&quot;: &quot;#/properties/charts/items/properties/axes/items&quot;,
+                &quot;type&quot;: &quot;object&quot;,
+                &quot;title&quot;: &quot;The Items Schema&quot;,
+                &quot;required&quot;: [
+                 &quot;id&quot;,
+                 &quot;position&quot;
+               ],
+               &quot;properties&quot;: {
+                 &quot;id&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/charts/items/properties/axes/items/properties/id&quot;,
+                   &quot;type&quot;: &quot;string&quot;,
+                   &quot;title&quot;: &quot;The Id Schema&quot;,
+                   &quot;default&quot;: &quot;&quot;,
+                   &quot;examples&quot;: [
+                     &quot;yAxis1&quot;
+                   ],
+                   &quot;pattern&quot;: &quot;^(.*)$&quot;
+                 },
+                 &quot;position&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/charts/items/properties/axes/items/properties/position&quot;,
+                   &quot;type&quot;: &quot;string&quot;,
+                   &quot;title&quot;: &quot;The Position Schema&quot;,
+                   &quot;default&quot;: &quot;&quot;,
+                   &quot;examples&quot;: [
+                     &quot;left&quot;
+                   ],
+                   &quot;pattern&quot;: &quot;^(.*)$&quot;
+                 }
+               }
+             }
+           },
+           &quot;datasets&quot;: {
+             &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets&quot;,
+             &quot;type&quot;: &quot;array&quot;,
+             &quot;title&quot;: &quot;The Datasets Schema&quot;,
+             &quot;items&quot;: {
+               &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets/items&quot;,
+               &quot;type&quot;: &quot;object&quot;,
+               &quot;title&quot;: &quot;The Items Schema&quot;,
+               &quot;required&quot;: [
+                 &quot;handler&quot;,
+                 &quot;autoLabel&quot;,
+                 &quot;sourceId&quot;,
+                 &quot;datasetId&quot;,
+                 &quot;borderColor&quot;,
+                 &quot;customDataHandlerEnabled&quot;,
+                 &quot;negRange&quot;,
+                 &quot;autoRange&quot;,
+                 &quot;name&quot;,
+                 &quot;chartDataset&quot;,
+                 &quot;unit&quot;
+               ],
+               &quot;properties&quot;: {
+                 &quot;handler&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets/items/properties/handler&quot;,
+                   &quot;type&quot;: &quot;string&quot;,
+                   &quot;title&quot;: &quot;The Handler Schema&quot;,
+                   &quot;default&quot;: &quot;&quot;,
+                   &quot;examples&quot;: [
+                     &quot;&quot;
+                   ],
+                   &quot;pattern&quot;: &quot;^(.*)$&quot;
+                 },
+                 &quot;autoLabel&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets/items/properties/autoLabel&quot;,
+                   &quot;type&quot;: &quot;boolean&quot;,
+                   &quot;title&quot;: &quot;The Autolabel Schema&quot;,
+                   &quot;default&quot;: false,
+                   &quot;examples&quot;: [
+                     true
+                   ]
+                 },
+                 &quot;sourceId&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets/items/properties/sourceId&quot;,
+                   &quot;type&quot;: &quot;string&quot;,
+                   &quot;title&quot;: &quot;The Sourceid Schema&quot;,
+                   &quot;default&quot;: &quot;&quot;,
+                   &quot;examples&quot;: [
+                     &quot;vm1&quot;
+                   ],
+                   &quot;pattern&quot;: &quot;^(.*)$&quot;
+                 },
+                 &quot;datasetId&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets/items/properties/datasetId&quot;,
+                   &quot;type&quot;: &quot;string&quot;,
+                   &quot;title&quot;: &quot;The Datasetid Schema&quot;,
+                   &quot;default&quot;: &quot;&quot;,
+                   &quot;examples&quot;: [
+                     &quot;ADS1dataset&quot;
+                   ],
+                   &quot;pattern&quot;: &quot;^(.*)$&quot;
+                 },
+                 &quot;borderColor&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets/items/properties/borderColor&quot;,
+                   &quot;type&quot;: &quot;string&quot;,
+                   &quot;title&quot;: &quot;The Bordercolor Schema&quot;,
+                   &quot;default&quot;: &quot;&quot;,
+                   &quot;examples&quot;: [
+                     &quot;#2196f3&quot;
+                   ],
+                   &quot;pattern&quot;: &quot;^(.*)$&quot;
+                 },
+                 &quot;customDataHandlerEnabled&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets/items/properties/customDataHandlerEnabled&quot;,
+                   &quot;type&quot;: &quot;boolean&quot;,
+                   &quot;title&quot;: &quot;The Customdatahandlerenabled Schema&quot;,
+                   &quot;default&quot;: false,
+                   &quot;examples&quot;: [
+                     false
+                   ]
+                 },
+                 &quot;negRange&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets/items/properties/negRange&quot;,
+                   &quot;type&quot;: &quot;boolean&quot;,
+                   &quot;title&quot;: &quot;The Negrange Schema&quot;,
+                   &quot;default&quot;: false,
+                   &quot;examples&quot;: [
+                     false
+                   ]
+                 },
+                 &quot;autoRange&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets/items/properties/autoRange&quot;,
+                   &quot;type&quot;: &quot;boolean&quot;,
+                   &quot;title&quot;: &quot;The Autorange Schema&quot;,
+                   &quot;default&quot;: false,
+                   &quot;examples&quot;: [
+                     true
+                   ]
+                 },
+                 &quot;name&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets/items/properties/name&quot;,
+                   &quot;type&quot;: &quot;string&quot;,
+                   &quot;title&quot;: &quot;The Name Schema&quot;,
+                   &quot;default&quot;: &quot;&quot;,
+                   &quot;examples&quot;: [
+                     &quot;Voltage vm1&quot;
+                   ],
+                   &quot;pattern&quot;: &quot;^(.*)$&quot;
+                 },
+                 &quot;chartDataset&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets/items/properties/chartDataset&quot;,
+                   &quot;type&quot;: &quot;object&quot;,
+                   &quot;title&quot;: &quot;The Chartdataset Schema&quot;,
+                   &quot;required&quot;: [
+                     &quot;yAxisID&quot;,
+                     &quot;fill&quot;,
+                     &quot;label&quot;,
+                     &quot;currValue&quot;,
+                     &quot;borderColor&quot;
+                   ],
+                   &quot;properties&quot;: {
+                     &quot;yAxisID&quot;: {
+                       &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets/items/properties/chartDataset/properties/yAxisID&quot;,
+                       &quot;type&quot;: &quot;string&quot;,
+                       &quot;title&quot;: &quot;The Yaxisid Schema&quot;,
+                       &quot;default&quot;: &quot;&quot;,
+                       &quot;examples&quot;: [
+                         &quot;yAxis1&quot;
+                       ],
+                       &quot;pattern&quot;: &quot;^(.*)$&quot;
+                     },
+                     &quot;fill&quot;: {
+                       &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets/items/properties/chartDataset/properties/fill&quot;,
+                       &quot;type&quot;: &quot;boolean&quot;,
+                       &quot;title&quot;: &quot;The Fill Schema&quot;,
+                       &quot;default&quot;: false,
+                       &quot;examples&quot;: [
+                         false
+                       ]
+                     },
+                     &quot;label&quot;: {
+                       &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets/items/properties/chartDataset/properties/label&quot;,
+                       &quot;type&quot;: &quot;string&quot;,
+                       &quot;title&quot;: &quot;The Label Schema&quot;,
+                       &quot;default&quot;: &quot;&quot;,
+                       &quot;examples&quot;: [
+                         &quot;Voltage vm1[mV]&quot;
+                       ],
+                       &quot;pattern&quot;: &quot;^(.*)$&quot;
+                     },
+                     &quot;currValue&quot;: {
+                       &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets/items/properties/chartDataset/properties/currValue&quot;,
+                       &quot;type&quot;: &quot;number&quot;,
+                       &quot;title&quot;: &quot;The Currvalue Schema&quot;,
+                       &quot;default&quot;: 0.0,
+                       &quot;examples&quot;: [
+                         24.536
+                       ]
+                     },
+                     &quot;borderColor&quot;: {
+                       &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets/items/properties/chartDataset/properties/borderColor&quot;,
+                       &quot;type&quot;: &quot;string&quot;,
+                       &quot;title&quot;: &quot;The Bordercolor Schema&quot;,
+                       &quot;default&quot;: &quot;&quot;,
+                       &quot;examples&quot;: [
+                         &quot;#0618f9&quot;
+                       ],
+                       &quot;pattern&quot;: &quot;^(.*)$&quot;
+                     }
+                   }
+                 },
+                 &quot;unit&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets/items/properties/unit&quot;,
+                   &quot;type&quot;: &quot;string&quot;,
+                   &quot;title&quot;: &quot;The Unit Schema&quot;,
+                   &quot;default&quot;: &quot;&quot;,
+                   &quot;examples&quot;: [
+                     &quot;mV&quot;
+                   ],
+                   &quot;pattern&quot;: &quot;^(.*)$&quot;
+                 }
+               }
+             }
+           },
+           &quot;maxValues&quot;: {
+             &quot;$id&quot;: &quot;#/properties/charts/items/properties/maxValues&quot;,
+             &quot;type&quot;: &quot;integer&quot;,
+             &quot;title&quot;: &quot;The Maxvalues Schema&quot;,
+             &quot;default&quot;: 0,
+             &quot;examples&quot;: [
+               40
+             ]
+           },
+           &quot;name&quot;: {
+             &quot;$id&quot;: &quot;#/properties/charts/items/properties/name&quot;,
+             &quot;type&quot;: &quot;string&quot;,
+             &quot;title&quot;: &quot;The Name Schema&quot;,
+             &quot;default&quot;: &quot;&quot;,
+             &quot;examples&quot;: [
+               &quot;Voltage chart&quot;
+             ],
+             &quot;pattern&quot;: &quot;^(.*)$&quot;
+           }
+         }
+       }
+     },
+     &quot;supplies&quot;: {
+       &quot;$id&quot;: &quot;#/properties/supplies&quot;,
+       &quot;type&quot;: &quot;array&quot;,
+       &quot;title&quot;: &quot;The Supplies Schema&quot;,
+       &quot;items&quot;: {
+         &quot;$id&quot;: &quot;#/properties/supplies/items&quot;,
+         &quot;type&quot;: &quot;object&quot;,
+         &quot;title&quot;: &quot;The Items Schema&quot;,
+         &quot;required&quot;: [
+           &quot;enabled&quot;,
+           &quot;type&quot;,
+           &quot;currentVoltage&quot;,
+           &quot;maxValue&quot;,
+           &quot;minValue&quot;,
+           &quot;id&quot;,
+           &quot;stepSize&quot;,
+           &quot;unit&quot;,
+           &quot;name&quot;
+         ],
+         &quot;properties&quot;: {
+           &quot;enabled&quot;: {
+             &quot;$id&quot;: &quot;#/properties/supplies/items/properties/enabled&quot;,
+             &quot;type&quot;: &quot;boolean&quot;,
+             &quot;title&quot;: &quot;The Enabled Schema&quot;,
+             &quot;default&quot;: false,
+             &quot;examples&quot;: [
+               true
+             ]
+           },
+           &quot;type&quot;: {
+             &quot;$id&quot;: &quot;#/properties/supplies/items/properties/type&quot;,
+             &quot;type&quot;: &quot;string&quot;,
+             &quot;title&quot;: &quot;The Type Schema&quot;,
+             &quot;default&quot;: &quot;&quot;,
+             &quot;examples&quot;: [
+               &quot;BodyBias&quot;
+             ],
+             &quot;pattern&quot;: &quot;^(.*)$&quot;
+           },
+           &quot;currentVoltage&quot;: {
+             &quot;$id&quot;: &quot;#/properties/supplies/items/properties/currentVoltage&quot;,
+             &quot;type&quot;: &quot;integer&quot;,
+             &quot;title&quot;: &quot;The Currentvoltage Schema&quot;,
+             &quot;default&quot;: 0,
+             &quot;examples&quot;: [
+               2
+             ]
+           },
+           &quot;maxValue&quot;: {
+             &quot;$id&quot;: &quot;#/properties/supplies/items/properties/maxValue&quot;,
+             &quot;type&quot;: &quot;number&quot;,
+             &quot;title&quot;: &quot;The Maxvalue Schema&quot;,
+             &quot;default&quot;: 0.0,
+             &quot;examples&quot;: [
+               2.5
+             ]
+           },
+           &quot;minValue&quot;: {
+             &quot;$id&quot;: &quot;#/properties/supplies/items/properties/minValue&quot;,
+             &quot;type&quot;: &quot;integer&quot;,
+             &quot;title&quot;: &quot;The Minvalue Schema&quot;,
+             &quot;default&quot;: 0,
+             &quot;examples&quot;: [
+               0
+             ]
+           },
+           &quot;id&quot;: {
+             &quot;$id&quot;: &quot;#/properties/supplies/items/properties/id&quot;,
+             &quot;type&quot;: &quot;string&quot;,
+             &quot;title&quot;: &quot;The Id Schema&quot;,
+             &quot;default&quot;: &quot;&quot;,
+             &quot;examples&quot;: [
+               &quot;BBP&quot;
+             ],
+             &quot;pattern&quot;: &quot;^(.*)$&quot;
+           },
+           &quot;stepSize&quot;: {
+             &quot;$id&quot;: &quot;#/properties/supplies/items/properties/stepSize&quot;,
+             &quot;type&quot;: &quot;number&quot;,
+             &quot;title&quot;: &quot;The Stepsize Schema&quot;,
+             &quot;default&quot;: 0.0,
+             &quot;examples&quot;: [
+               0.005
+             ]
+           },
+           &quot;unit&quot;: {
+             &quot;$id&quot;: &quot;#/properties/supplies/items/properties/unit&quot;,
+             &quot;type&quot;: &quot;string&quot;,
+             &quot;title&quot;: &quot;The Unit Schema&quot;,
+             &quot;default&quot;: &quot;&quot;,
+             &quot;examples&quot;: [
+               &quot;V&quot;
+             ],
+             &quot;pattern&quot;: &quot;^(.*)$&quot;
+           },
+           &quot;name&quot;: {
+             &quot;$id&quot;: &quot;#/properties/supplies/items/properties/name&quot;,
+             &quot;type&quot;: &quot;string&quot;,
+             &quot;title&quot;: &quot;The Name Schema&quot;,
+             &quot;default&quot;: &quot;&quot;,
+             &quot;examples&quot;: [
+               &quot;BodyBiasingPos&quot;
+             ],
+             &quot;pattern&quot;: &quot;^(.*)$&quot;
+           }
+         }
+       }
+     },
+     &quot;devices&quot;: {
+       &quot;$id&quot;: &quot;#/properties/devices&quot;,
+       &quot;type&quot;: &quot;array&quot;,
+       &quot;title&quot;: &quot;The Devices Schema&quot;,
+       &quot;items&quot;: {
+         &quot;$id&quot;: &quot;#/properties/devices/items&quot;,
+         &quot;type&quot;: &quot;object&quot;,
+         &quot;title&quot;: &quot;The Items Schema&quot;,
+         &quot;required&quot;: [
+           &quot;autoResolution&quot;,
+           &quot;type&quot;,
+           &quot;currentResolution&quot;,
+           &quot;deviceId&quot;,
+           &quot;name&quot;
+         ],
+         &quot;properties&quot;: {
+           &quot;autoResolution&quot;: {
+             &quot;$id&quot;: &quot;#/properties/devices/items/properties/autoResolution&quot;,
+             &quot;type&quot;: &quot;boolean&quot;,
+             &quot;title&quot;: &quot;The Autoresolution Schema&quot;,
+             &quot;default&quot;: false,
+             &quot;examples&quot;: [
+               true
+             ]
+           },
+           &quot;type&quot;: {
+             &quot;$id&quot;: &quot;#/properties/devices/items/properties/type&quot;,
+             &quot;type&quot;: &quot;string&quot;,
+             &quot;title&quot;: &quot;The Type Schema&quot;,
+             &quot;default&quot;: &quot;&quot;,
+             &quot;examples&quot;: [
+               &quot;voltage&quot;
+             ],
+             &quot;pattern&quot;: &quot;^(.*)$&quot;
+           },
+           &quot;currentResolution&quot;: {
+             &quot;$id&quot;: &quot;#/properties/devices/items/properties/currentResolution&quot;,
+             &quot;type&quot;: &quot;integer&quot;,
+             &quot;title&quot;: &quot;The Currentresolution Schema&quot;,
+             &quot;default&quot;: 0,
+             &quot;examples&quot;: [
+               3
+             ]
+           },
+           &quot;deviceId&quot;: {
+             &quot;$id&quot;: &quot;#/properties/devices/items/properties/deviceId&quot;,
+             &quot;type&quot;: &quot;string&quot;,
+             &quot;title&quot;: &quot;The Deviceid Schema&quot;,
+             &quot;default&quot;: &quot;&quot;,
+             &quot;examples&quot;: [
+               &quot;vm1&quot;
+             ],
+             &quot;pattern&quot;: &quot;^(.*)$&quot;
+           },
+           &quot;name&quot;: {
+             &quot;$id&quot;: &quot;#/properties/devices/items/properties/name&quot;,
+             &quot;type&quot;: &quot;string&quot;,
+             &quot;title&quot;: &quot;The Name Schema&quot;,
+             &quot;default&quot;: &quot;&quot;,
+             &quot;examples&quot;: [
+               &quot;ADS1&quot;
+             ],
+             &quot;pattern&quot;: &quot;^(.*)$&quot;
+           }
+         }
+       }
+     },
+     &quot;general&quot;: {
+       &quot;$id&quot;: &quot;#/properties/general&quot;,
+       &quot;type&quot;: &quot;object&quot;,
+       &quot;title&quot;: &quot;The General Schema&quot;,
+       &quot;required&quot;: [
+         &quot;currentResolutionMap&quot;,
+         &quot;voltageResolutionMap&quot;,
+         &quot;maxDataPoints&quot;,
+         &quot;chartOptions&quot;,
+         &quot;timerInterval&quot;
+       ],
+       &quot;properties&quot;: {
+         &quot;currentResolutionMap&quot;: {
+           &quot;$id&quot;: &quot;#/properties/general/properties/currentResolutionMap&quot;,
+           &quot;type&quot;: &quot;array&quot;,
+           &quot;title&quot;: &quot;The Currentresolutionmap Schema&quot;,
+           &quot;items&quot;: {
+             &quot;$id&quot;: &quot;#/properties/general/properties/currentResolutionMap/items&quot;,
+             &quot;type&quot;: &quot;string&quot;,
+             &quot;title&quot;: &quot;The Items Schema&quot;,
+             &quot;default&quot;: &quot;&quot;,
+             &quot;examples&quot;: [
+               &quot;500uA&quot;,
+               &quot;50mA&quot;
+             ],
+             &quot;pattern&quot;: &quot;^(.*)$&quot;
+           }
+         },
+         &quot;voltageResolutionMap&quot;: {
+           &quot;$id&quot;: &quot;#/properties/general/properties/voltageResolutionMap&quot;,
+           &quot;type&quot;: &quot;array&quot;,
+           &quot;title&quot;: &quot;The Voltageresolutionmap Schema&quot;,
+           &quot;items&quot;: {
+             &quot;$id&quot;: &quot;#/properties/general/properties/voltageResolutionMap/items&quot;,
+             &quot;type&quot;: &quot;string&quot;,
+             &quot;title&quot;: &quot;The Items Schema&quot;,
+             &quot;default&quot;: &quot;&quot;,
+             &quot;examples&quot;: [
+               &quot;50mV&quot;,
+               &quot;500mV&quot;,
+               &quot;5V&quot;
+             ],
+             &quot;pattern&quot;: &quot;^(.*)$&quot;
+           }
+         },
+         &quot;maxDataPoints&quot;: {
+           &quot;$id&quot;: &quot;#/properties/general/properties/maxDataPoints&quot;,
+           &quot;type&quot;: &quot;integer&quot;,
+           &quot;title&quot;: &quot;The Maxdatapoints Schema&quot;,
+           &quot;default&quot;: 0,
+           &quot;examples&quot;: [
+             50
+           ]
+         },
+         &quot;chartOptions&quot;: {
+           &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions&quot;,
+           &quot;type&quot;: &quot;object&quot;,
+           &quot;title&quot;: &quot;The Chartoptions Schema&quot;,
+           &quot;required&quot;: [
+             &quot;animation&quot;,
+             &quot;responsive&quot;,
+             &quot;legend&quot;,
+             &quot;scales&quot;
+           ],
+           &quot;properties&quot;: {
+             &quot;animation&quot;: {
+               &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/animation&quot;,
+               &quot;type&quot;: &quot;object&quot;,
+               &quot;title&quot;: &quot;The Animation Schema&quot;,
+               &quot;required&quot;: [
+                 &quot;duration&quot;
+               ],
+               &quot;properties&quot;: {
+                 &quot;duration&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/animation/properties/duration&quot;,
+                   &quot;type&quot;: &quot;integer&quot;,
+                   &quot;title&quot;: &quot;The Duration Schema&quot;,
+                   &quot;default&quot;: 0,
+                   &quot;examples&quot;: [
+                     0
+                   ]
+                 }
+               }
+             },
+             &quot;responsive&quot;: {
+               &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/responsive&quot;,
+               &quot;type&quot;: &quot;boolean&quot;,
+               &quot;title&quot;: &quot;The Responsive Schema&quot;,
+               &quot;default&quot;: false,
+               &quot;examples&quot;: [
+                 true
+               ]
+             },
+             &quot;legend&quot;: {
+               &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/legend&quot;,
+               &quot;type&quot;: &quot;object&quot;,
+               &quot;title&quot;: &quot;The Legend Schema&quot;,
+               &quot;required&quot;: [
+                 &quot;labels&quot;,
+                 &quot;display&quot;
+               ],
+               &quot;properties&quot;: {
+                 &quot;labels&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/legend/properties/labels&quot;,
+                   &quot;type&quot;: &quot;object&quot;,
+                   &quot;title&quot;: &quot;The Labels Schema&quot;,
+                   &quot;required&quot;: [
+                     &quot;fontColor&quot;
+                   ],
+                   &quot;properties&quot;: {
+                     &quot;fontColor&quot;: {
+                       &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/legend/properties/labels/properties/fontColor&quot;,
+                       &quot;type&quot;: &quot;string&quot;,
+                       &quot;title&quot;: &quot;The Fontcolor Schema&quot;,
+                       &quot;default&quot;: &quot;&quot;,
+                       &quot;examples&quot;: [
+                         &quot;#000080&quot;
+                       ],
+                       &quot;pattern&quot;: &quot;^(.*)$&quot;
+                     }
+                   }
+                 },
+                 &quot;display&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/legend/properties/display&quot;,
+                   &quot;type&quot;: &quot;boolean&quot;,
+                   &quot;title&quot;: &quot;The Display Schema&quot;,
+                   &quot;default&quot;: false,
+                   &quot;examples&quot;: [
+                     true
+                   ]
+                 }
+               }
+             },
+             &quot;scales&quot;: {
+               &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/scales&quot;,
+               &quot;type&quot;: &quot;object&quot;,
+               &quot;title&quot;: &quot;The Scales Schema&quot;,
+               &quot;required&quot;: [
+                 &quot;xAxes&quot;,
+                 &quot;yAxes&quot;
+               ],
+               &quot;properties&quot;: {
+                 &quot;xAxes&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/scales/properties/xAxes&quot;,
+                   &quot;type&quot;: &quot;array&quot;,
+                   &quot;title&quot;: &quot;The Xaxes Schema&quot;,
+                   &quot;items&quot;: {
+                     &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/scales/properties/xAxes/items&quot;,
+                     &quot;type&quot;: &quot;object&quot;,
+                     &quot;title&quot;: &quot;The Items Schema&quot;,
+                     &quot;required&quot;: [
+                       &quot;gridLines&quot;,
+                       &quot;ticks&quot;
+                     ],
+                     &quot;properties&quot;: {
+                       &quot;gridLines&quot;: {
+                         &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/scales/properties/xAxes/items/properties/gridLines&quot;,
+                         &quot;type&quot;: &quot;object&quot;,
+                         &quot;title&quot;: &quot;The Gridlines Schema&quot;,
+                         &quot;required&quot;: [
+                           &quot;display&quot;
+                         ],
+                         &quot;properties&quot;: {
+                           &quot;display&quot;: {
+                             &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/scales/properties/xAxes/items/properties/gridLines/properties/display&quot;,
+                             &quot;type&quot;: &quot;boolean&quot;,
+                             &quot;title&quot;: &quot;The Display Schema&quot;,
+                             &quot;default&quot;: false,
+                             &quot;examples&quot;: [
+                               false
+                             ]
+                           }
+                         }
+                       },
+                       &quot;ticks&quot;: {
+                         &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/scales/properties/xAxes/items/properties/ticks&quot;,
+                         &quot;type&quot;: &quot;object&quot;,
+                         &quot;title&quot;: &quot;The Ticks Schema&quot;,
+                         &quot;required&quot;: [
+                           &quot;fontStyle&quot;,
+                           &quot;fontColor&quot;,
+                           &quot;padding&quot;
+                         ],
+                         &quot;properties&quot;: {
+                           &quot;fontStyle&quot;: {
+                             &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/scales/properties/xAxes/items/properties/ticks/properties/fontStyle&quot;,
+                             &quot;type&quot;: &quot;string&quot;,
+                             &quot;title&quot;: &quot;The Fontstyle Schema&quot;,
+                             &quot;default&quot;: &quot;&quot;,
+                             &quot;examples&quot;: [
+                               &quot;bold&quot;
+                             ],
+                             &quot;pattern&quot;: &quot;^(.*)$&quot;
+                           },
+                           &quot;fontColor&quot;: {
+                             &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/scales/properties/xAxes/items/properties/ticks/properties/fontColor&quot;,
+                             &quot;type&quot;: &quot;string&quot;,
+                             &quot;title&quot;: &quot;The Fontcolor Schema&quot;,
+                             &quot;default&quot;: &quot;&quot;,
+                             &quot;examples&quot;: [
+                               &quot;rgba(0,0,0,0.6)&quot;
+                             ],
+                             &quot;pattern&quot;: &quot;^(.*)$&quot;
+                           },
+                           &quot;padding&quot;: {
+                             &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/scales/properties/xAxes/items/properties/ticks/properties/padding&quot;,
+                             &quot;type&quot;: &quot;integer&quot;,
+                             &quot;title&quot;: &quot;The Padding Schema&quot;,
+                             &quot;default&quot;: 0,
+                             &quot;examples&quot;: [
+                               0
+                             ]
+                           }
+                         }
+                       }
+                     }
+                   }
+                 },
+                 &quot;yAxes&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/scales/properties/yAxes&quot;,
+                   &quot;type&quot;: &quot;array&quot;,
+                   &quot;title&quot;: &quot;The Yaxes Schema&quot;,
+                   &quot;items&quot;: {
+                     &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/scales/properties/yAxes/items&quot;,
+                     &quot;type&quot;: &quot;object&quot;,
+                     &quot;title&quot;: &quot;The Items Schema&quot;,
+                     &quot;required&quot;: [
+                       &quot;id&quot;,
+                       &quot;type&quot;,
+                       &quot;position&quot;
+                     ],
+                     &quot;properties&quot;: {
+                       &quot;id&quot;: {
+                         &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/scales/properties/yAxes/items/properties/id&quot;,
+                         &quot;type&quot;: &quot;string&quot;,
+                         &quot;title&quot;: &quot;The Id Schema&quot;,
+                         &quot;default&quot;: &quot;&quot;,
+                         &quot;examples&quot;: [
+                           &quot;Left&quot;
+                         ],
+                         &quot;pattern&quot;: &quot;^(.*)$&quot;
+                       },
+                       &quot;type&quot;: {
+                         &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/scales/properties/yAxes/items/properties/type&quot;,
+                         &quot;type&quot;: &quot;string&quot;,
+                         &quot;title&quot;: &quot;The Type Schema&quot;,
+                         &quot;default&quot;: &quot;&quot;,
+                         &quot;examples&quot;: [
+                           &quot;linear&quot;
+                         ],
+                         &quot;pattern&quot;: &quot;^(.*)$&quot;
+                       },
+                       &quot;position&quot;: {
+                         &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/scales/properties/yAxes/items/properties/position&quot;,
+                         &quot;type&quot;: &quot;string&quot;,
+                         &quot;title&quot;: &quot;The Position Schema&quot;,
+                         &quot;default&quot;: &quot;&quot;,
+                         &quot;examples&quot;: [
+                           &quot;left&quot;
+                         ],
+                         &quot;pattern&quot;: &quot;^(.*)$&quot;
+                       }
+                     }
+                   }
+                 }
+               }
+             }
+           }
+         },
+         &quot;timerInterval&quot;: {
+           &quot;$id&quot;: &quot;#/properties/general/properties/timerInterval&quot;,
+           &quot;type&quot;: &quot;integer&quot;,
+           &quot;title&quot;: &quot;The Timerinterval Schema&quot;,
+           &quot;default&quot;: 0,
+           &quot;examples&quot;: [
+             500
+           ]
+         }
+       }
+     },
+     &quot;deployment&quot;: {
+       &quot;$id&quot;: &quot;#/properties/deployment&quot;,
+       &quot;type&quot;: &quot;object&quot;,
+       &quot;title&quot;: &quot;The Deployment Schema&quot;,
+       &quot;required&quot;: [
+         &quot;apiLink&quot;,
+         &quot;apiPort&quot;,
+         &quot;protocol&quot;,
+         &quot;host&quot;
+       ],
+       &quot;properties&quot;: {
+         &quot;apiLink&quot;: {
+           &quot;$id&quot;: &quot;#/properties/deployment/properties/apiLink&quot;,
+           &quot;type&quot;: &quot;string&quot;,
+           &quot;title&quot;: &quot;The Apilink Schema&quot;,
+           &quot;default&quot;: &quot;&quot;,
+           &quot;examples&quot;: [
+             &quot;/api&quot;
+           ],
+           &quot;pattern&quot;: &quot;^(.*)$&quot;
+         },
+         &quot;apiPort&quot;: {
+           &quot;$id&quot;: &quot;#/properties/deployment/properties/apiPort&quot;,
+           &quot;type&quot;: &quot;string&quot;,
+           &quot;title&quot;: &quot;The Apiport Schema&quot;,
+           &quot;default&quot;: &quot;&quot;,
+           &quot;examples&quot;: [
+             &quot;8080&quot;
+           ],
+           &quot;pattern&quot;: &quot;^(.*)$&quot;
+         },
+         &quot;protocol&quot;: {
+           &quot;$id&quot;: &quot;#/properties/deployment/properties/protocol&quot;,
+           &quot;type&quot;: &quot;string&quot;,
+           &quot;title&quot;: &quot;The Protocol Schema&quot;,
+           &quot;default&quot;: &quot;&quot;,
+           &quot;examples&quot;: [
+             &quot;http&quot;
+           ],
+           &quot;pattern&quot;: &quot;^(.*)$&quot;
+         },
+         &quot;host&quot;: {
+           &quot;$id&quot;: &quot;#/properties/deployment/properties/host&quot;,
+           &quot;type&quot;: &quot;string&quot;,
+           &quot;title&quot;: &quot;The Host Schema&quot;,
+           &quot;default&quot;: &quot;&quot;,
+           &quot;examples&quot;: [
+             &quot;localhost&quot;
+           ],
+           &quot;pattern&quot;: &quot;^(.*)$&quot;
+         }
+       }
+     }
+   }
+ }</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/editor/editor.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Generated by https://jsonschema.net/ <br>
+General schema for configuration file.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ViewChild, AfterViewInit} from &#x27;@angular/core&#x27;;
+import { AppConfig } from &#x27;../_services/app.config&#x27;;
+import { JsonEditorComponent, JsonEditorOptions } from &#x27;ang-jsoneditor&#x27;;
+import { IAppConfig } from &#x27;../_models/app-config.model&#x27;;
+
+@Component({
+  selector: &#x27;app-editor&#x27;,
+  templateUrl: &#x27;./editor.component.html&#x27;,
+  styleUrls: [&#x27;./editor.component.css&#x27;]
+})
+export class EditorComponent implements AfterViewInit{
+
+
+  /** Generated by https://jsonschema.net/ &lt;br&gt;
+  *  General schema for configuration file.
+  */
+  schema &#x3D;    {
+     &quot;definitions&quot;: {},
+     &quot;$schema&quot;: &quot;http://json-schema.org/draft-07/schema#&quot;,
+     &quot;$id&quot;: &quot;http://example.com/root.json&quot;,
+     &quot;type&quot;: &quot;object&quot;,
+     &quot;title&quot;: &quot;The Root Schema&quot;,
+     &quot;required&quot;: [
+       &quot;charts&quot;,
+       &quot;supplies&quot;,
+      &quot;devices&quot;,
+      &quot;general&quot;,
+      &quot;deployment&quot;
+    ],
+    &quot;properties&quot;: {
+      &quot;charts&quot;: {
+        &quot;$id&quot;: &quot;#/properties/charts&quot;,
+        &quot;type&quot;: &quot;array&quot;,
+        &quot;title&quot;: &quot;The Charts Schema&quot;,
+        &quot;items&quot;: {
+          &quot;$id&quot;: &quot;#/properties/charts/items&quot;,
+          &quot;type&quot;: &quot;object&quot;,
+          &quot;title&quot;: &quot;The Items Schema&quot;,
+          &quot;required&quot;: [
+            &quot;col&quot;,
+            &quot;chartId&quot;,
+            &quot;axes&quot;,
+            &quot;datasets&quot;,
+            &quot;maxValues&quot;,
+            &quot;name&quot;
+          ],
+          &quot;properties&quot;: {
+            &quot;col&quot;: {
+              &quot;$id&quot;: &quot;#/properties/charts/items/properties/col&quot;,
+              &quot;type&quot;: &quot;object&quot;,
+              &quot;title&quot;: &quot;The Col Schema&quot;,
+              &quot;required&quot;: [
+                &quot;xs&quot;,
+                &quot;md&quot;,
+                &quot;sm&quot;,
+                &quot;lg&quot;
+              ],
+              &quot;properties&quot;: {
+                &quot;xs&quot;: {
+                  &quot;$id&quot;: &quot;#/properties/charts/items/properties/col/properties/xs&quot;,
+                  &quot;type&quot;: &quot;integer&quot;,
+                  &quot;title&quot;: &quot;The Xs Schema&quot;,
+                  &quot;default&quot;: 0,
+                  &quot;examples&quot;: [
+                    12
+                  ]
+                },
+                &quot;md&quot;: {
+                  &quot;$id&quot;: &quot;#/properties/charts/items/properties/col/properties/md&quot;,
+                  &quot;type&quot;: &quot;integer&quot;,
+                  &quot;title&quot;: &quot;The Md Schema&quot;,
+                  &quot;default&quot;: 0,
+                  &quot;examples&quot;: [
+                    12
+                  ]
+                },
+                &quot;sm&quot;: {
+                  &quot;$id&quot;: &quot;#/properties/charts/items/properties/col/properties/sm&quot;,
+                  &quot;type&quot;: &quot;integer&quot;,
+                  &quot;title&quot;: &quot;The Sm Schema&quot;,
+                  &quot;default&quot;: 0,
+                  &quot;examples&quot;: [
+                    12
+                  ]
+                },
+                &quot;lg&quot;: {
+                  &quot;$id&quot;: &quot;#/properties/charts/items/properties/col/properties/lg&quot;,
+                  &quot;type&quot;: &quot;integer&quot;,
+                  &quot;title&quot;: &quot;The Lg Schema&quot;,
+                  &quot;default&quot;: 0,
+                  &quot;examples&quot;: [
+                    6
+                  ]
+                }
+              }
+            },
+            &quot;chartId&quot;: {
+              &quot;$id&quot;: &quot;#/properties/charts/items/properties/chartId&quot;,
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;title&quot;: &quot;The Chartid Schema&quot;,
+              &quot;default&quot;: &quot;&quot;,
+              &quot;examples&quot;: [
+                &quot;Chart#1&quot;
+              ],
+              &quot;pattern&quot;: &quot;^(.*)$&quot;
+            },
+            &quot;axes&quot;: {
+              &quot;$id&quot;: &quot;#/properties/charts/items/properties/axes&quot;,
+              &quot;type&quot;: &quot;array&quot;,
+              &quot;title&quot;: &quot;The Axes Schema&quot;,
+              &quot;items&quot;: {
+                &quot;$id&quot;: &quot;#/properties/charts/items/properties/axes/items&quot;,
+                &quot;type&quot;: &quot;object&quot;,
+                &quot;title&quot;: &quot;The Items Schema&quot;,
+                &quot;required&quot;: [
+                 &quot;id&quot;,
+                 &quot;position&quot;
+               ],
+               &quot;properties&quot;: {
+                 &quot;id&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/charts/items/properties/axes/items/properties/id&quot;,
+                   &quot;type&quot;: &quot;string&quot;,
+                   &quot;title&quot;: &quot;The Id Schema&quot;,
+                   &quot;default&quot;: &quot;&quot;,
+                   &quot;examples&quot;: [
+                     &quot;yAxis1&quot;
+                   ],
+                   &quot;pattern&quot;: &quot;^(.*)$&quot;
+                 },
+                 &quot;position&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/charts/items/properties/axes/items/properties/position&quot;,
+                   &quot;type&quot;: &quot;string&quot;,
+                   &quot;title&quot;: &quot;The Position Schema&quot;,
+                   &quot;default&quot;: &quot;&quot;,
+                   &quot;examples&quot;: [
+                     &quot;left&quot;
+                   ],
+                   &quot;pattern&quot;: &quot;^(.*)$&quot;
+                 }
+               }
+             }
+           },
+           &quot;datasets&quot;: {
+             &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets&quot;,
+             &quot;type&quot;: &quot;array&quot;,
+             &quot;title&quot;: &quot;The Datasets Schema&quot;,
+             &quot;items&quot;: {
+               &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets/items&quot;,
+               &quot;type&quot;: &quot;object&quot;,
+               &quot;title&quot;: &quot;The Items Schema&quot;,
+               &quot;required&quot;: [
+                 &quot;handler&quot;,
+                 &quot;autoLabel&quot;,
+                 &quot;sourceId&quot;,
+                 &quot;datasetId&quot;,
+                 &quot;borderColor&quot;,
+                 &quot;customDataHandlerEnabled&quot;,
+                 &quot;negRange&quot;,
+                 &quot;autoRange&quot;,
+                 &quot;name&quot;,
+                 &quot;chartDataset&quot;,
+                 &quot;unit&quot;
+               ],
+               &quot;properties&quot;: {
+                 &quot;handler&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets/items/properties/handler&quot;,
+                   &quot;type&quot;: &quot;string&quot;,
+                   &quot;title&quot;: &quot;The Handler Schema&quot;,
+                   &quot;default&quot;: &quot;&quot;,
+                   &quot;examples&quot;: [
+                     &quot;&quot;
+                   ],
+                   &quot;pattern&quot;: &quot;^(.*)$&quot;
+                 },
+                 &quot;autoLabel&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets/items/properties/autoLabel&quot;,
+                   &quot;type&quot;: &quot;boolean&quot;,
+                   &quot;title&quot;: &quot;The Autolabel Schema&quot;,
+                   &quot;default&quot;: false,
+                   &quot;examples&quot;: [
+                     true
+                   ]
+                 },
+                 &quot;sourceId&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets/items/properties/sourceId&quot;,
+                   &quot;type&quot;: &quot;string&quot;,
+                   &quot;title&quot;: &quot;The Sourceid Schema&quot;,
+                   &quot;default&quot;: &quot;&quot;,
+                   &quot;examples&quot;: [
+                     &quot;vm1&quot;
+                   ],
+                   &quot;pattern&quot;: &quot;^(.*)$&quot;
+                 },
+                 &quot;datasetId&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets/items/properties/datasetId&quot;,
+                   &quot;type&quot;: &quot;string&quot;,
+                   &quot;title&quot;: &quot;The Datasetid Schema&quot;,
+                   &quot;default&quot;: &quot;&quot;,
+                   &quot;examples&quot;: [
+                     &quot;ADS1dataset&quot;
+                   ],
+                   &quot;pattern&quot;: &quot;^(.*)$&quot;
+                 },
+                 &quot;borderColor&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets/items/properties/borderColor&quot;,
+                   &quot;type&quot;: &quot;string&quot;,
+                   &quot;title&quot;: &quot;The Bordercolor Schema&quot;,
+                   &quot;default&quot;: &quot;&quot;,
+                   &quot;examples&quot;: [
+                     &quot;#2196f3&quot;
+                   ],
+                   &quot;pattern&quot;: &quot;^(.*)$&quot;
+                 },
+                 &quot;customDataHandlerEnabled&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets/items/properties/customDataHandlerEnabled&quot;,
+                   &quot;type&quot;: &quot;boolean&quot;,
+                   &quot;title&quot;: &quot;The Customdatahandlerenabled Schema&quot;,
+                   &quot;default&quot;: false,
+                   &quot;examples&quot;: [
+                     false
+                   ]
+                 },
+                 &quot;negRange&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets/items/properties/negRange&quot;,
+                   &quot;type&quot;: &quot;boolean&quot;,
+                   &quot;title&quot;: &quot;The Negrange Schema&quot;,
+                   &quot;default&quot;: false,
+                   &quot;examples&quot;: [
+                     false
+                   ]
+                 },
+                 &quot;autoRange&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets/items/properties/autoRange&quot;,
+                   &quot;type&quot;: &quot;boolean&quot;,
+                   &quot;title&quot;: &quot;The Autorange Schema&quot;,
+                   &quot;default&quot;: false,
+                   &quot;examples&quot;: [
+                     true
+                   ]
+                 },
+                 &quot;name&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets/items/properties/name&quot;,
+                   &quot;type&quot;: &quot;string&quot;,
+                   &quot;title&quot;: &quot;The Name Schema&quot;,
+                   &quot;default&quot;: &quot;&quot;,
+                   &quot;examples&quot;: [
+                     &quot;Voltage vm1&quot;
+                   ],
+                   &quot;pattern&quot;: &quot;^(.*)$&quot;
+                 },
+                 &quot;chartDataset&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets/items/properties/chartDataset&quot;,
+                   &quot;type&quot;: &quot;object&quot;,
+                   &quot;title&quot;: &quot;The Chartdataset Schema&quot;,
+                   &quot;required&quot;: [
+                     &quot;yAxisID&quot;,
+                     &quot;fill&quot;,
+                     &quot;label&quot;,
+                     &quot;currValue&quot;,
+                     &quot;borderColor&quot;
+                   ],
+                   &quot;properties&quot;: {
+                     &quot;yAxisID&quot;: {
+                       &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets/items/properties/chartDataset/properties/yAxisID&quot;,
+                       &quot;type&quot;: &quot;string&quot;,
+                       &quot;title&quot;: &quot;The Yaxisid Schema&quot;,
+                       &quot;default&quot;: &quot;&quot;,
+                       &quot;examples&quot;: [
+                         &quot;yAxis1&quot;
+                       ],
+                       &quot;pattern&quot;: &quot;^(.*)$&quot;
+                     },
+                     &quot;fill&quot;: {
+                       &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets/items/properties/chartDataset/properties/fill&quot;,
+                       &quot;type&quot;: &quot;boolean&quot;,
+                       &quot;title&quot;: &quot;The Fill Schema&quot;,
+                       &quot;default&quot;: false,
+                       &quot;examples&quot;: [
+                         false
+                       ]
+                     },
+                     &quot;label&quot;: {
+                       &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets/items/properties/chartDataset/properties/label&quot;,
+                       &quot;type&quot;: &quot;string&quot;,
+                       &quot;title&quot;: &quot;The Label Schema&quot;,
+                       &quot;default&quot;: &quot;&quot;,
+                       &quot;examples&quot;: [
+                         &quot;Voltage vm1[mV]&quot;
+                       ],
+                       &quot;pattern&quot;: &quot;^(.*)$&quot;
+                     },
+                     &quot;currValue&quot;: {
+                       &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets/items/properties/chartDataset/properties/currValue&quot;,
+                       &quot;type&quot;: &quot;number&quot;,
+                       &quot;title&quot;: &quot;The Currvalue Schema&quot;,
+                       &quot;default&quot;: 0.0,
+                       &quot;examples&quot;: [
+                         24.536
+                       ]
+                     },
+                     &quot;borderColor&quot;: {
+                       &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets/items/properties/chartDataset/properties/borderColor&quot;,
+                       &quot;type&quot;: &quot;string&quot;,
+                       &quot;title&quot;: &quot;The Bordercolor Schema&quot;,
+                       &quot;default&quot;: &quot;&quot;,
+                       &quot;examples&quot;: [
+                         &quot;#0618f9&quot;
+                       ],
+                       &quot;pattern&quot;: &quot;^(.*)$&quot;
+                     }
+                   }
+                 },
+                 &quot;unit&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/charts/items/properties/datasets/items/properties/unit&quot;,
+                   &quot;type&quot;: &quot;string&quot;,
+                   &quot;title&quot;: &quot;The Unit Schema&quot;,
+                   &quot;default&quot;: &quot;&quot;,
+                   &quot;examples&quot;: [
+                     &quot;mV&quot;
+                   ],
+                   &quot;pattern&quot;: &quot;^(.*)$&quot;
+                 }
+               }
+             }
+           },
+           &quot;maxValues&quot;: {
+             &quot;$id&quot;: &quot;#/properties/charts/items/properties/maxValues&quot;,
+             &quot;type&quot;: &quot;integer&quot;,
+             &quot;title&quot;: &quot;The Maxvalues Schema&quot;,
+             &quot;default&quot;: 0,
+             &quot;examples&quot;: [
+               40
+             ]
+           },
+           &quot;name&quot;: {
+             &quot;$id&quot;: &quot;#/properties/charts/items/properties/name&quot;,
+             &quot;type&quot;: &quot;string&quot;,
+             &quot;title&quot;: &quot;The Name Schema&quot;,
+             &quot;default&quot;: &quot;&quot;,
+             &quot;examples&quot;: [
+               &quot;Voltage chart&quot;
+             ],
+             &quot;pattern&quot;: &quot;^(.*)$&quot;
+           }
+         }
+       }
+     },
+     &quot;supplies&quot;: {
+       &quot;$id&quot;: &quot;#/properties/supplies&quot;,
+       &quot;type&quot;: &quot;array&quot;,
+       &quot;title&quot;: &quot;The Supplies Schema&quot;,
+       &quot;items&quot;: {
+         &quot;$id&quot;: &quot;#/properties/supplies/items&quot;,
+         &quot;type&quot;: &quot;object&quot;,
+         &quot;title&quot;: &quot;The Items Schema&quot;,
+         &quot;required&quot;: [
+           &quot;enabled&quot;,
+           &quot;type&quot;,
+           &quot;currentVoltage&quot;,
+           &quot;maxValue&quot;,
+           &quot;minValue&quot;,
+           &quot;id&quot;,
+           &quot;stepSize&quot;,
+           &quot;unit&quot;,
+           &quot;name&quot;
+         ],
+         &quot;properties&quot;: {
+           &quot;enabled&quot;: {
+             &quot;$id&quot;: &quot;#/properties/supplies/items/properties/enabled&quot;,
+             &quot;type&quot;: &quot;boolean&quot;,
+             &quot;title&quot;: &quot;The Enabled Schema&quot;,
+             &quot;default&quot;: false,
+             &quot;examples&quot;: [
+               true
+             ]
+           },
+           &quot;type&quot;: {
+             &quot;$id&quot;: &quot;#/properties/supplies/items/properties/type&quot;,
+             &quot;type&quot;: &quot;string&quot;,
+             &quot;title&quot;: &quot;The Type Schema&quot;,
+             &quot;default&quot;: &quot;&quot;,
+             &quot;examples&quot;: [
+               &quot;BodyBias&quot;
+             ],
+             &quot;pattern&quot;: &quot;^(.*)$&quot;
+           },
+           &quot;currentVoltage&quot;: {
+             &quot;$id&quot;: &quot;#/properties/supplies/items/properties/currentVoltage&quot;,
+             &quot;type&quot;: &quot;integer&quot;,
+             &quot;title&quot;: &quot;The Currentvoltage Schema&quot;,
+             &quot;default&quot;: 0,
+             &quot;examples&quot;: [
+               2
+             ]
+           },
+           &quot;maxValue&quot;: {
+             &quot;$id&quot;: &quot;#/properties/supplies/items/properties/maxValue&quot;,
+             &quot;type&quot;: &quot;number&quot;,
+             &quot;title&quot;: &quot;The Maxvalue Schema&quot;,
+             &quot;default&quot;: 0.0,
+             &quot;examples&quot;: [
+               2.5
+             ]
+           },
+           &quot;minValue&quot;: {
+             &quot;$id&quot;: &quot;#/properties/supplies/items/properties/minValue&quot;,
+             &quot;type&quot;: &quot;integer&quot;,
+             &quot;title&quot;: &quot;The Minvalue Schema&quot;,
+             &quot;default&quot;: 0,
+             &quot;examples&quot;: [
+               0
+             ]
+           },
+           &quot;id&quot;: {
+             &quot;$id&quot;: &quot;#/properties/supplies/items/properties/id&quot;,
+             &quot;type&quot;: &quot;string&quot;,
+             &quot;title&quot;: &quot;The Id Schema&quot;,
+             &quot;default&quot;: &quot;&quot;,
+             &quot;examples&quot;: [
+               &quot;BBP&quot;
+             ],
+             &quot;pattern&quot;: &quot;^(.*)$&quot;
+           },
+           &quot;stepSize&quot;: {
+             &quot;$id&quot;: &quot;#/properties/supplies/items/properties/stepSize&quot;,
+             &quot;type&quot;: &quot;number&quot;,
+             &quot;title&quot;: &quot;The Stepsize Schema&quot;,
+             &quot;default&quot;: 0.0,
+             &quot;examples&quot;: [
+               0.005
+             ]
+           },
+           &quot;unit&quot;: {
+             &quot;$id&quot;: &quot;#/properties/supplies/items/properties/unit&quot;,
+             &quot;type&quot;: &quot;string&quot;,
+             &quot;title&quot;: &quot;The Unit Schema&quot;,
+             &quot;default&quot;: &quot;&quot;,
+             &quot;examples&quot;: [
+               &quot;V&quot;
+             ],
+             &quot;pattern&quot;: &quot;^(.*)$&quot;
+           },
+           &quot;name&quot;: {
+             &quot;$id&quot;: &quot;#/properties/supplies/items/properties/name&quot;,
+             &quot;type&quot;: &quot;string&quot;,
+             &quot;title&quot;: &quot;The Name Schema&quot;,
+             &quot;default&quot;: &quot;&quot;,
+             &quot;examples&quot;: [
+               &quot;BodyBiasingPos&quot;
+             ],
+             &quot;pattern&quot;: &quot;^(.*)$&quot;
+           }
+         }
+       }
+     },
+     &quot;devices&quot;: {
+       &quot;$id&quot;: &quot;#/properties/devices&quot;,
+       &quot;type&quot;: &quot;array&quot;,
+       &quot;title&quot;: &quot;The Devices Schema&quot;,
+       &quot;items&quot;: {
+         &quot;$id&quot;: &quot;#/properties/devices/items&quot;,
+         &quot;type&quot;: &quot;object&quot;,
+         &quot;title&quot;: &quot;The Items Schema&quot;,
+         &quot;required&quot;: [
+           &quot;autoResolution&quot;,
+           &quot;type&quot;,
+           &quot;currentResolution&quot;,
+           &quot;deviceId&quot;,
+           &quot;name&quot;
+         ],
+         &quot;properties&quot;: {
+           &quot;autoResolution&quot;: {
+             &quot;$id&quot;: &quot;#/properties/devices/items/properties/autoResolution&quot;,
+             &quot;type&quot;: &quot;boolean&quot;,
+             &quot;title&quot;: &quot;The Autoresolution Schema&quot;,
+             &quot;default&quot;: false,
+             &quot;examples&quot;: [
+               true
+             ]
+           },
+           &quot;type&quot;: {
+             &quot;$id&quot;: &quot;#/properties/devices/items/properties/type&quot;,
+             &quot;type&quot;: &quot;string&quot;,
+             &quot;title&quot;: &quot;The Type Schema&quot;,
+             &quot;default&quot;: &quot;&quot;,
+             &quot;examples&quot;: [
+               &quot;voltage&quot;
+             ],
+             &quot;pattern&quot;: &quot;^(.*)$&quot;
+           },
+           &quot;currentResolution&quot;: {
+             &quot;$id&quot;: &quot;#/properties/devices/items/properties/currentResolution&quot;,
+             &quot;type&quot;: &quot;integer&quot;,
+             &quot;title&quot;: &quot;The Currentresolution Schema&quot;,
+             &quot;default&quot;: 0,
+             &quot;examples&quot;: [
+               3
+             ]
+           },
+           &quot;deviceId&quot;: {
+             &quot;$id&quot;: &quot;#/properties/devices/items/properties/deviceId&quot;,
+             &quot;type&quot;: &quot;string&quot;,
+             &quot;title&quot;: &quot;The Deviceid Schema&quot;,
+             &quot;default&quot;: &quot;&quot;,
+             &quot;examples&quot;: [
+               &quot;vm1&quot;
+             ],
+             &quot;pattern&quot;: &quot;^(.*)$&quot;
+           },
+           &quot;name&quot;: {
+             &quot;$id&quot;: &quot;#/properties/devices/items/properties/name&quot;,
+             &quot;type&quot;: &quot;string&quot;,
+             &quot;title&quot;: &quot;The Name Schema&quot;,
+             &quot;default&quot;: &quot;&quot;,
+             &quot;examples&quot;: [
+               &quot;ADS1&quot;
+             ],
+             &quot;pattern&quot;: &quot;^(.*)$&quot;
+           }
+         }
+       }
+     },
+     &quot;general&quot;: {
+       &quot;$id&quot;: &quot;#/properties/general&quot;,
+       &quot;type&quot;: &quot;object&quot;,
+       &quot;title&quot;: &quot;The General Schema&quot;,
+       &quot;required&quot;: [
+         &quot;currentResolutionMap&quot;,
+         &quot;voltageResolutionMap&quot;,
+         &quot;maxDataPoints&quot;,
+         &quot;chartOptions&quot;,
+         &quot;timerInterval&quot;
+       ],
+       &quot;properties&quot;: {
+         &quot;currentResolutionMap&quot;: {
+           &quot;$id&quot;: &quot;#/properties/general/properties/currentResolutionMap&quot;,
+           &quot;type&quot;: &quot;array&quot;,
+           &quot;title&quot;: &quot;The Currentresolutionmap Schema&quot;,
+           &quot;items&quot;: {
+             &quot;$id&quot;: &quot;#/properties/general/properties/currentResolutionMap/items&quot;,
+             &quot;type&quot;: &quot;string&quot;,
+             &quot;title&quot;: &quot;The Items Schema&quot;,
+             &quot;default&quot;: &quot;&quot;,
+             &quot;examples&quot;: [
+               &quot;500uA&quot;,
+               &quot;50mA&quot;
+             ],
+             &quot;pattern&quot;: &quot;^(.*)$&quot;
+           }
+         },
+         &quot;voltageResolutionMap&quot;: {
+           &quot;$id&quot;: &quot;#/properties/general/properties/voltageResolutionMap&quot;,
+           &quot;type&quot;: &quot;array&quot;,
+           &quot;title&quot;: &quot;The Voltageresolutionmap Schema&quot;,
+           &quot;items&quot;: {
+             &quot;$id&quot;: &quot;#/properties/general/properties/voltageResolutionMap/items&quot;,
+             &quot;type&quot;: &quot;string&quot;,
+             &quot;title&quot;: &quot;The Items Schema&quot;,
+             &quot;default&quot;: &quot;&quot;,
+             &quot;examples&quot;: [
+               &quot;50mV&quot;,
+               &quot;500mV&quot;,
+               &quot;5V&quot;
+             ],
+             &quot;pattern&quot;: &quot;^(.*)$&quot;
+           }
+         },
+         &quot;maxDataPoints&quot;: {
+           &quot;$id&quot;: &quot;#/properties/general/properties/maxDataPoints&quot;,
+           &quot;type&quot;: &quot;integer&quot;,
+           &quot;title&quot;: &quot;The Maxdatapoints Schema&quot;,
+           &quot;default&quot;: 0,
+           &quot;examples&quot;: [
+             50
+           ]
+         },
+         &quot;chartOptions&quot;: {
+           &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions&quot;,
+           &quot;type&quot;: &quot;object&quot;,
+           &quot;title&quot;: &quot;The Chartoptions Schema&quot;,
+           &quot;required&quot;: [
+             &quot;animation&quot;,
+             &quot;responsive&quot;,
+             &quot;legend&quot;,
+             &quot;scales&quot;
+           ],
+           &quot;properties&quot;: {
+             &quot;animation&quot;: {
+               &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/animation&quot;,
+               &quot;type&quot;: &quot;object&quot;,
+               &quot;title&quot;: &quot;The Animation Schema&quot;,
+               &quot;required&quot;: [
+                 &quot;duration&quot;
+               ],
+               &quot;properties&quot;: {
+                 &quot;duration&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/animation/properties/duration&quot;,
+                   &quot;type&quot;: &quot;integer&quot;,
+                   &quot;title&quot;: &quot;The Duration Schema&quot;,
+                   &quot;default&quot;: 0,
+                   &quot;examples&quot;: [
+                     0
+                   ]
+                 }
+               }
+             },
+             &quot;responsive&quot;: {
+               &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/responsive&quot;,
+               &quot;type&quot;: &quot;boolean&quot;,
+               &quot;title&quot;: &quot;The Responsive Schema&quot;,
+               &quot;default&quot;: false,
+               &quot;examples&quot;: [
+                 true
+               ]
+             },
+             &quot;legend&quot;: {
+               &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/legend&quot;,
+               &quot;type&quot;: &quot;object&quot;,
+               &quot;title&quot;: &quot;The Legend Schema&quot;,
+               &quot;required&quot;: [
+                 &quot;labels&quot;,
+                 &quot;display&quot;
+               ],
+               &quot;properties&quot;: {
+                 &quot;labels&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/legend/properties/labels&quot;,
+                   &quot;type&quot;: &quot;object&quot;,
+                   &quot;title&quot;: &quot;The Labels Schema&quot;,
+                   &quot;required&quot;: [
+                     &quot;fontColor&quot;
+                   ],
+                   &quot;properties&quot;: {
+                     &quot;fontColor&quot;: {
+                       &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/legend/properties/labels/properties/fontColor&quot;,
+                       &quot;type&quot;: &quot;string&quot;,
+                       &quot;title&quot;: &quot;The Fontcolor Schema&quot;,
+                       &quot;default&quot;: &quot;&quot;,
+                       &quot;examples&quot;: [
+                         &quot;#000080&quot;
+                       ],
+                       &quot;pattern&quot;: &quot;^(.*)$&quot;
+                     }
+                   }
+                 },
+                 &quot;display&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/legend/properties/display&quot;,
+                   &quot;type&quot;: &quot;boolean&quot;,
+                   &quot;title&quot;: &quot;The Display Schema&quot;,
+                   &quot;default&quot;: false,
+                   &quot;examples&quot;: [
+                     true
+                   ]
+                 }
+               }
+             },
+             &quot;scales&quot;: {
+               &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/scales&quot;,
+               &quot;type&quot;: &quot;object&quot;,
+               &quot;title&quot;: &quot;The Scales Schema&quot;,
+               &quot;required&quot;: [
+                 &quot;xAxes&quot;,
+                 &quot;yAxes&quot;
+               ],
+               &quot;properties&quot;: {
+                 &quot;xAxes&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/scales/properties/xAxes&quot;,
+                   &quot;type&quot;: &quot;array&quot;,
+                   &quot;title&quot;: &quot;The Xaxes Schema&quot;,
+                   &quot;items&quot;: {
+                     &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/scales/properties/xAxes/items&quot;,
+                     &quot;type&quot;: &quot;object&quot;,
+                     &quot;title&quot;: &quot;The Items Schema&quot;,
+                     &quot;required&quot;: [
+                       &quot;gridLines&quot;,
+                       &quot;ticks&quot;
+                     ],
+                     &quot;properties&quot;: {
+                       &quot;gridLines&quot;: {
+                         &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/scales/properties/xAxes/items/properties/gridLines&quot;,
+                         &quot;type&quot;: &quot;object&quot;,
+                         &quot;title&quot;: &quot;The Gridlines Schema&quot;,
+                         &quot;required&quot;: [
+                           &quot;display&quot;
+                         ],
+                         &quot;properties&quot;: {
+                           &quot;display&quot;: {
+                             &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/scales/properties/xAxes/items/properties/gridLines/properties/display&quot;,
+                             &quot;type&quot;: &quot;boolean&quot;,
+                             &quot;title&quot;: &quot;The Display Schema&quot;,
+                             &quot;default&quot;: false,
+                             &quot;examples&quot;: [
+                               false
+                             ]
+                           }
+                         }
+                       },
+                       &quot;ticks&quot;: {
+                         &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/scales/properties/xAxes/items/properties/ticks&quot;,
+                         &quot;type&quot;: &quot;object&quot;,
+                         &quot;title&quot;: &quot;The Ticks Schema&quot;,
+                         &quot;required&quot;: [
+                           &quot;fontStyle&quot;,
+                           &quot;fontColor&quot;,
+                           &quot;padding&quot;
+                         ],
+                         &quot;properties&quot;: {
+                           &quot;fontStyle&quot;: {
+                             &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/scales/properties/xAxes/items/properties/ticks/properties/fontStyle&quot;,
+                             &quot;type&quot;: &quot;string&quot;,
+                             &quot;title&quot;: &quot;The Fontstyle Schema&quot;,
+                             &quot;default&quot;: &quot;&quot;,
+                             &quot;examples&quot;: [
+                               &quot;bold&quot;
+                             ],
+                             &quot;pattern&quot;: &quot;^(.*)$&quot;
+                           },
+                           &quot;fontColor&quot;: {
+                             &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/scales/properties/xAxes/items/properties/ticks/properties/fontColor&quot;,
+                             &quot;type&quot;: &quot;string&quot;,
+                             &quot;title&quot;: &quot;The Fontcolor Schema&quot;,
+                             &quot;default&quot;: &quot;&quot;,
+                             &quot;examples&quot;: [
+                               &quot;rgba(0,0,0,0.6)&quot;
+                             ],
+                             &quot;pattern&quot;: &quot;^(.*)$&quot;
+                           },
+                           &quot;padding&quot;: {
+                             &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/scales/properties/xAxes/items/properties/ticks/properties/padding&quot;,
+                             &quot;type&quot;: &quot;integer&quot;,
+                             &quot;title&quot;: &quot;The Padding Schema&quot;,
+                             &quot;default&quot;: 0,
+                             &quot;examples&quot;: [
+                               0
+                             ]
+                           }
+                         }
+                       }
+                     }
+                   }
+                 },
+                 &quot;yAxes&quot;: {
+                   &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/scales/properties/yAxes&quot;,
+                   &quot;type&quot;: &quot;array&quot;,
+                   &quot;title&quot;: &quot;The Yaxes Schema&quot;,
+                   &quot;items&quot;: {
+                     &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/scales/properties/yAxes/items&quot;,
+                     &quot;type&quot;: &quot;object&quot;,
+                     &quot;title&quot;: &quot;The Items Schema&quot;,
+                     &quot;required&quot;: [
+                       &quot;id&quot;,
+                       &quot;type&quot;,
+                       &quot;position&quot;
+                     ],
+                     &quot;properties&quot;: {
+                       &quot;id&quot;: {
+                         &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/scales/properties/yAxes/items/properties/id&quot;,
+                         &quot;type&quot;: &quot;string&quot;,
+                         &quot;title&quot;: &quot;The Id Schema&quot;,
+                         &quot;default&quot;: &quot;&quot;,
+                         &quot;examples&quot;: [
+                           &quot;Left&quot;
+                         ],
+                         &quot;pattern&quot;: &quot;^(.*)$&quot;
+                       },
+                       &quot;type&quot;: {
+                         &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/scales/properties/yAxes/items/properties/type&quot;,
+                         &quot;type&quot;: &quot;string&quot;,
+                         &quot;title&quot;: &quot;The Type Schema&quot;,
+                         &quot;default&quot;: &quot;&quot;,
+                         &quot;examples&quot;: [
+                           &quot;linear&quot;
+                         ],
+                         &quot;pattern&quot;: &quot;^(.*)$&quot;
+                       },
+                       &quot;position&quot;: {
+                         &quot;$id&quot;: &quot;#/properties/general/properties/chartOptions/properties/scales/properties/yAxes/items/properties/position&quot;,
+                         &quot;type&quot;: &quot;string&quot;,
+                         &quot;title&quot;: &quot;The Position Schema&quot;,
+                         &quot;default&quot;: &quot;&quot;,
+                         &quot;examples&quot;: [
+                           &quot;left&quot;
+                         ],
+                         &quot;pattern&quot;: &quot;^(.*)$&quot;
+                       }
+                     }
+                   }
+                 }
+               }
+             }
+           }
+         },
+         &quot;timerInterval&quot;: {
+           &quot;$id&quot;: &quot;#/properties/general/properties/timerInterval&quot;,
+           &quot;type&quot;: &quot;integer&quot;,
+           &quot;title&quot;: &quot;The Timerinterval Schema&quot;,
+           &quot;default&quot;: 0,
+           &quot;examples&quot;: [
+             500
+           ]
+         }
+       }
+     },
+     &quot;deployment&quot;: {
+       &quot;$id&quot;: &quot;#/properties/deployment&quot;,
+       &quot;type&quot;: &quot;object&quot;,
+       &quot;title&quot;: &quot;The Deployment Schema&quot;,
+       &quot;required&quot;: [
+         &quot;apiLink&quot;,
+         &quot;apiPort&quot;,
+         &quot;protocol&quot;,
+         &quot;host&quot;
+       ],
+       &quot;properties&quot;: {
+         &quot;apiLink&quot;: {
+           &quot;$id&quot;: &quot;#/properties/deployment/properties/apiLink&quot;,
+           &quot;type&quot;: &quot;string&quot;,
+           &quot;title&quot;: &quot;The Apilink Schema&quot;,
+           &quot;default&quot;: &quot;&quot;,
+           &quot;examples&quot;: [
+             &quot;/api&quot;
+           ],
+           &quot;pattern&quot;: &quot;^(.*)$&quot;
+         },
+         &quot;apiPort&quot;: {
+           &quot;$id&quot;: &quot;#/properties/deployment/properties/apiPort&quot;,
+           &quot;type&quot;: &quot;string&quot;,
+           &quot;title&quot;: &quot;The Apiport Schema&quot;,
+           &quot;default&quot;: &quot;&quot;,
+           &quot;examples&quot;: [
+             &quot;8080&quot;
+           ],
+           &quot;pattern&quot;: &quot;^(.*)$&quot;
+         },
+         &quot;protocol&quot;: {
+           &quot;$id&quot;: &quot;#/properties/deployment/properties/protocol&quot;,
+           &quot;type&quot;: &quot;string&quot;,
+           &quot;title&quot;: &quot;The Protocol Schema&quot;,
+           &quot;default&quot;: &quot;&quot;,
+           &quot;examples&quot;: [
+             &quot;http&quot;
+           ],
+           &quot;pattern&quot;: &quot;^(.*)$&quot;
+         },
+         &quot;host&quot;: {
+           &quot;$id&quot;: &quot;#/properties/deployment/properties/host&quot;,
+           &quot;type&quot;: &quot;string&quot;,
+           &quot;title&quot;: &quot;The Host Schema&quot;,
+           &quot;default&quot;: &quot;&quot;,
+           &quot;examples&quot;: [
+             &quot;localhost&quot;
+           ],
+           &quot;pattern&quot;: &quot;^(.*)$&quot;
+         }
+       }
+     }
+   }
+ }
+
+   /**
+   * The editor used to edit the json file.
+   */
+  @ViewChild(JsonEditorComponent) editor: JsonEditorComponent;
+
+  /**
+  *
+  */
+  private options &#x3D; new JsonEditorOptions();
+  /**
+  * Stores the data which is displayed and edited in the json editor
+  */
+  public data: IAppConfig;
+
+
+  constructor(public appConfig: AppConfig) {
+    // remove private values
+    AppConfig.clear();
+    this.data &#x3D;  AppConfig.settings;
+    this.options.mode &#x3D; &#x27;code&#x27;;
+    this.options.modes &#x3D; [&#x27;code&#x27;, &#x27;text&#x27;, &#x27;tree&#x27;, &#x27;view&#x27;];
+    this.options.schema &#x3D; this.schema;
+    this.options.statusBar &#x3D; false;
+  }
+
+  /**
+  * Converts the content of the editor into a json object and sends it to the backend to store.
+  */
+  public onSavePressed() {
+    AppConfig.settings &#x3D; JSON.parse(this.editor.getText());
+    this.appConfig.storeSettings();
+  }
+
+  ngAfterViewInit(): void {
+      // fix. editor has problems with height.
+      this.editor.jsonEditorContainer.nativeElement.style.height &#x3D; &quot;85vh&quot;;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
+  &lt;div class&#x3D;&quot;row&quot; style&#x3D;&quot;padding:5px;&quot;&gt;
+    &lt;json-editor class&#x3D;&quot;col-md-12&quot; [options]&#x3D;&quot;options&quot; [data]&#x3D;&quot;data&quot;&gt;&lt;/json-editor&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;row float-right&quot; style&#x3D;&quot;padding: 5px;&quot;&gt;
+    &lt;button class&#x3D;&quot;btn btn-primary&quot; (click)&#x3D;&quot;onSavePressed()&quot; [disabled]&#x3D;&quot;!editor.isValidJson()&quot;&gt; Save &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./editor.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.ace_editor.ace-jsoneditor {
+  min-height: 500px;
+}
+
+.parent-1 {
+  height: 100vh;
+}
+
+.editor-1 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container">  <div class="row" style="padding:5px;">    <json-editor class="col-md-12" [options]="options" [data]="data"></json-editor>  </div>  <div class="row float-right" style="padding: 5px;">    <button class="btn btn-primary" (click)="onSavePressed()" [disabled]="!editor.isValidJson()"> Save </button>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChartComponent', 'selector': 'app-chart'},{'name': 'ChartFormComponent', 'selector': 'app-chart-form'},{'name': 'ConfirmDialog', 'selector': 'app-confirm-dialog'},{'name': 'ControlSliderComponent', 'selector': 'app-control-slider'},{'name': 'EditorComponent', 'selector': 'app-editor'},{'name': 'GeneralSettingsComponent', 'selector': 'app-general-settings'},{'name': 'LoginComponent', 'selector': ''},{'name': 'MDashboardComponent', 'selector': 'app-m-dashboard'},{'name': 'MeasurementConfigurationComponent', 'selector': 'app-measurement-config'},{'name': 'MenuListItemComponent', 'selector': 'app-menu-list-item'},{'name': 'MyNavComponent', 'selector': 'app-my-nav'},{'name': 'PowerOffDialog', 'selector': 'app-power_off_dialog'},{'name': 'SupplyVoltagesComponent', 'selector': 'app-supply-voltages'},{'name': 'VideostreamComponent', 'selector': 'app-videostream'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'EditorComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'EditorComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

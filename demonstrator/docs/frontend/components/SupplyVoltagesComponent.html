@@ -1,0 +1,730 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>test-app documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">test-app documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>SupplyVoltagesComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/supply-voltages/supply-voltages.component.ts</code>
+</p>
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Component used to configure the different supply voltages on the board. <br>
+Lets the user disable/enable different supplies and choose their voltages</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-supply-voltages</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./supply-voltages.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./supply-voltages.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dialog">dialog</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#settings">settings</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#openDialog">openDialog</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#validInputs">validInputs</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(dialog: MatDialog)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="99" class="link-to-prism">src/app/supply-voltages/supply-voltages.component.ts:99</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>dialog</td>
+                                                  
+                                                        <td>
+                                                                    <code>MatDialog</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="142"
+                            class="link-to-prism">src/app/supply-voltages/supply-voltages.component.ts:142</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openDialog"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            openDialog
+                        </b>
+                        <a href="#openDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>openDialog()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="106"
+                            class="link-to-prism">src/app/supply-voltages/supply-voltages.component.ts:106</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Opens the confirmation dialog to make sure if the user wants to make the changes</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dialog"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            dialog</b>
+                            <a href="#dialog"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>MatDialog</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="101" class="link-to-prism">src/app/supply-voltages/supply-voltages.component.ts:101</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="settings"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            settings</b>
+                            <a href="#settings"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../injectables/AppConfig.html" target="_self" >IAppConfig</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="99" class="link-to-prism">src/app/supply-voltages/supply-voltages.component.ts:99</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Object containing the settings object.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="validInputs"></a>
+                        <span class="name"><b>validInputs</b><a href="#validInputs"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>validInputs()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="132" class="link-to-prism">src/app/supply-voltages/supply-voltages.component.ts:132</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Checks if the inputs are valid and can be set</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, Inject } from &#x27;@angular/core&#x27;;
+import { AppConfig } from &#x27;../_services/app.config&#x27;;
+import { IAppConfig } from &#x27;../_models/app-config.model&#x27;;
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from &#x27;@angular/material&#x27;;
+import { VarSupply } from &#x27;../_models/varSupply.model&#x27;;
+import { HttpClient} from &#x27;@angular/common/http&#x27;;
+import { ToastrService } from &#x27;ngx-toastr&#x27;;
+
+
+/**
+* Inteface used to define the structure of the data that is shown in the confirmationdialog
+*/
+interface ConfirmationDialogData {
+  /**
+  * Array containing name, oldValue and newValue information. These information will be shown like follows:
+  * @example
+  * [name] : [oldValue] -&gt; [newValue]
+  */
+    values: Array&lt;{
+      &quot;name&quot;: string,
+      &quot;oldValue&quot;: any,
+      &quot;newValue&quot;: any
+    }&gt;,
+    /**
+    * The Object that gets send to the backend if the dialog is confirmed.
+    * &lt;br&gt; this will be the content of the post request
+    */
+    submitObject: any,
+    /**
+    *  The part of the url following the /api &lt;callPath&gt; which will get called if the dialog is confirmed
+    */
+    callPath: string
+}
+/**
+* General Dialog used to show and confirm changes to an object.
+*/
+@Component({
+  selector: &#x27;app-confirm-dialog&#x27;,
+  templateUrl: &#x27;./confirm-dialog.component.html&#x27;,
+})
+export class ConfirmDialog {
+
+  /**
+  * Creates the dialog.
+  * @param {HttpClient} http httpclient used to send api requests to the backend
+  * @param {MatDialogRef} dialogRef reference to show the dialog
+  * @param{ConfirmationDialogData} data Data containing the changes the user needs to confirm.
+  */
+  constructor(
+    public http: HttpClient,
+    public dialogRef: MatDialogRef&lt;ConfirmDialog&gt;,
+    @Inject(MAT_DIALOG_DATA) public data: ConfirmationDialogData,
+    private toastr: ToastrService
+  ) { }
+
+  /**
+  * If no is clicked , close dialog and notify listeners
+  */
+  public onNoClick(): void {
+    this.dialogRef.close(false);
+  }
+
+  /**
+  * Calls backendPath with the submit object. Shows notification to inform if request was successful
+  */
+  public onYesClick(): void {
+    this.http.post(AppConfig.apiUrl + this.data.callPath, this.data.submitObject, { responseType: &#x27;text&#x27; })
+      .subscribe(
+        (val) &#x3D;&gt; {
+          console.log(&quot;POST call successful value returned in body&quot;,
+            val);
+          this.toastr.success(&#x27;Values set successfully&#x27;);
+          this.dialogRef.close(true);
+        },
+        response &#x3D;&gt; {
+          console.log(response)
+          this.toastr.error(response, &quot;Could not set Values&quot;);
+          this.dialogRef.close(false);
+        });
+  }
+}
+
+
+
+
+/**
+* Component used to configure the different supply voltages on the board. &lt;br&gt;
+* Lets the user disable/enable different supplies and choose their voltages
+*/
+@Component({
+  selector: &#x27;app-supply-voltages&#x27;,
+  templateUrl: &#x27;./supply-voltages.component.html&#x27;,
+  styleUrls: [&#x27;./supply-voltages.component.css&#x27;]
+})
+export class SupplyVoltagesComponent implements OnInit {
+  /**
+  * Object containing the settings object.
+  */
+  public settings: IAppConfig;
+
+  constructor(public dialog: MatDialog) { }
+
+  /**
+  * Opens the confirmation dialog to make sure if the user wants to make the changes
+  */
+  public openDialog(): void {
+    // Map supplies obejct to list with old and new value which will be displayed in the dialog
+    let updates &#x3D; this.settings.supplies.map(supply &#x3D;&gt; {
+      if (supply.enabled) {
+        return {
+          name: supply.name,
+          oldValue: supply.currentVoltage,
+          newValue: supply.desiredVoltage
+        };
+      }
+      return {
+        name: supply.name,
+        oldValue: supply.currentVoltage,
+        newValue: &quot;Disabled&quot;
+      };
+    });
+
+    this.dialog.open(ConfirmDialog, {
+      width: &#x27;400px&#x27;,
+      data: { values: updates, submitObject: this.settings.supplies, callPath: &quot;/updateDeviceVoltages&quot; }
+    });
+  }
+
+  /**
+  * Checks if the inputs are valid and can be set
+  */
+  get validInputs(): boolean {
+    for (let device of this.settings.supplies) {
+      if (device.desiredVoltage &lt; device.minValue || device.desiredVoltage &gt; device.maxValue) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+
+  ngOnInit() {
+    this.settings &#x3D; AppConfig.settings;
+  }
+
+  /**
+  * @ignore
+  */
+  onSubmit() {
+    for (let sup of this.settings.supplies) {
+      if (sup.maxValueChecked) {
+        sup.desiredVoltage &#x3D; sup.maxFix;
+      }
+    }
+    this.openDialog();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
+  &lt;div class&#x3D;&quot;card&quot;&gt;
+    &lt;div class&#x3D;&quot;card-header&quot;&gt;
+      Supply Voltages
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;card-body&quot;&gt;
+      &lt;div class&#x3D;&quot;container&quot;&gt;
+        &lt;form (ngSubmit)&#x3D;&quot;onSubmit()&quot;&gt;
+          &lt;div class&#x3D;&quot;row&quot; *ngFor&#x3D;&quot;let id of settings.supplies; let i &#x3D; index&quot;&gt;
+            &lt;app-control-slider deviceId&#x3D;{{i}}&gt; &lt;/app-control-slider&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;row float-right&quot;&gt;
+            &lt;button type&#x3D;&quot;submit&quot; [disabled]&#x3D;&quot;!validInputs&quot; class&#x3D;&quot;btn btn-success&quot;&gt;Submit&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/form&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./supply-voltages.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container">  <div class="card">    <div class="card-header">      Supply Voltages    </div>    <div class="card-body">      <div class="container">        <form (ngSubmit)="onSubmit()">          <div class="row" *ngFor="let id of settings.supplies; let i = index">            <app-control-slider deviceId={{i}}> </app-control-slider>          </div>          <div class="row float-right">            <button type="submit" [disabled]="!validInputs" class="btn btn-success">Submit</button>          </div>        </form>      </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ChartComponent', 'selector': 'app-chart'},{'name': 'ChartFormComponent', 'selector': 'app-chart-form'},{'name': 'ConfirmDialog', 'selector': 'app-confirm-dialog'},{'name': 'ControlSliderComponent', 'selector': 'app-control-slider'},{'name': 'EditorComponent', 'selector': 'app-editor'},{'name': 'GeneralSettingsComponent', 'selector': 'app-general-settings'},{'name': 'LoginComponent', 'selector': ''},{'name': 'MDashboardComponent', 'selector': 'app-m-dashboard'},{'name': 'MeasurementConfigurationComponent', 'selector': 'app-measurement-config'},{'name': 'MenuListItemComponent', 'selector': 'app-menu-list-item'},{'name': 'MyNavComponent', 'selector': 'app-my-nav'},{'name': 'PowerOffDialog', 'selector': 'app-power_off_dialog'},{'name': 'SupplyVoltagesComponent', 'selector': 'app-supply-voltages'},{'name': 'VideostreamComponent', 'selector': 'app-videostream'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'SupplyVoltagesComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SupplyVoltagesComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
