@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.6.2" />
 <title>flask_app.Driver.PCAL6416 API documentation</title>
-<meta name="description" content="" />
+<meta name="description" content="Driver for the PCAL6416 Chip" />
 <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
 <link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
@@ -20,9 +20,11 @@
 <h1 class="title">Module <code>flask_app.Driver.PCAL6416</code></h1>
 </header>
 <section id="section-intro">
+<p>Driver for the PCAL6416 Chip</p>
 <details class="source">
 <summary>Source code</summary>
-<pre><code class="python">import logging
+<pre><code class="python">&#34;&#34;&#34; Driver for the PCAL6416 Chip&#34;&#34;&#34;
+import logging
 logger = logging.getLogger(__name__)
 
 try:
@@ -54,6 +56,7 @@ SLAVE_ADDRESS=0b0100000
 
 
 class PinAssignment:
+    &#34;&#34;&#34; Helper class for the PCAL6416, since the IoExpander does not also provide pins but also ports, this class is used to uniquely select a pin of the expander&#34;&#34;&#34;
     def __init__(self, port, pin, type):
         self.portNumber = port
         self.pinNumber = pin
@@ -64,7 +67,7 @@ class PinAssignment:
 # Datasheet with communication commands https://www.nxp.com/docs/en/data-sheet/PCAL6416A.pdf
 class PCAL6416:
     &#34;&#34;&#34;
-    A class used to represent the PCAL6416 Chip.
+    A class used to represent the PCAL6416 (IoExpander) Chip.
     ...
 
     Attributes
@@ -249,7 +252,7 @@ class PCAL6416:
 <span>(</span><span>bus_num=1, address=32)</span>
 </code></dt>
 <dd>
-<section class="desc"><p>A class used to represent the PCAL6416 Chip.
+<section class="desc"><p>A class used to represent the PCAL6416 (IoExpander) Chip.
 &hellip;</p>
 <h2 id="attributes">Attributes</h2>
 <p>address int
@@ -261,7 +264,7 @@ portNumber int</p></section>
 <summary>Source code</summary>
 <pre><code class="python">class PCAL6416:
     &#34;&#34;&#34;
-    A class used to represent the PCAL6416 Chip.
+    A class used to represent the PCAL6416 (IoExpander) Chip.
     ...
 
     Attributes
@@ -595,10 +598,11 @@ portNumber int</p></section>
 <span>(</span><span>port, pin, type)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>Helper class for the PCAL6416, since the IoExpander does not also provide pins but also ports, this class is used to uniquely select a pin of the expander</p></section>
 <details class="source">
 <summary>Source code</summary>
 <pre><code class="python">class PinAssignment:
+    &#34;&#34;&#34; Helper class for the PCAL6416, since the IoExpander does not also provide pins but also ports, this class is used to uniquely select a pin of the expander&#34;&#34;&#34;
     def __init__(self, port, pin, type):
         self.portNumber = port
         self.pinNumber = pin

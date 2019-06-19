@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.6.2" />
 <title>flask_app.Driver.LTC2631 API documentation</title>
-<meta name="description" content="" />
+<meta name="description" content="Driver for the LTC2631 Chip" />
 <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
 <link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
@@ -20,9 +20,11 @@
 <h1 class="title">Module <code>flask_app.Driver.LTC2631</code></h1>
 </header>
 <section id="section-intro">
+<p>Driver for the LTC2631 Chip</p>
 <details class="source">
 <summary>Source code</summary>
-<pre><code class="python">import logging
+<pre><code class="python">&#34;&#34;&#34; Driver for the LTC2631 Chip &#34;&#34;&#34;
+import logging
 try:
     import smbus
 except ImportError:
@@ -103,6 +105,7 @@ class LTC2631:
         self.resolution = resolution
 
     def setToExtRefMode(self, refVoltage):
+        &#34;&#34;&#34; if this function is called, the external supply voltage connected to the chip will be used &#34;&#34;&#34;
         if(refVoltage &lt; 0):
             raise ValueError(&#39;Reference Voltage must be &gt; than 0. Given: &#39;+ str(refVoltage))
 
@@ -117,11 +120,10 @@ class LTC2631:
         self.refVoltage = refVoltage
 
 
-    def disable(self):
-        #TODO really turn off
-        self.setVoltage(0)
-        
+
+
     def setVoltage(self,voltage):
+        &#34;&#34;&#34; Sets the output of this chip to a given voltage. The voltage must be smaller than the reference voltage&#34;&#34;&#34;
         #Vout= (k/2^n)*Vref
         if (voltage &lt; 0 or voltage &gt; self.refVoltage) :
             raise ValueError(&#39;Voltage mus be between 0 and reference Given: &#39; + str(voltage) + &#39; Reference Voltage: &#39; + str(self.refVoltage))
@@ -147,6 +149,7 @@ class LTC2631:
         self._setValue(defVal);
 
     def _setValue(self, value):
+        &#34;&#34;&#34; private fucntion, transmits commands to set a given voltage usin I2C&#34;&#34;&#34;
         logger.debug(&#34;Setting value of LTC2631: Value: &#34; + str(value) + &#34;bin: &#34; + bin(value)+&#34;  Mode : &#34; + str(self.mode) + &#34;  Address: &#34; + str(self.device_address))
 
 
@@ -265,6 +268,7 @@ Sets the voltage to a given voltage.</p>
         self.resolution = resolution
 
     def setToExtRefMode(self, refVoltage):
+        &#34;&#34;&#34; if this function is called, the external supply voltage connected to the chip will be used &#34;&#34;&#34;
         if(refVoltage &lt; 0):
             raise ValueError(&#39;Reference Voltage must be &gt; than 0. Given: &#39;+ str(refVoltage))
 
@@ -279,11 +283,10 @@ Sets the voltage to a given voltage.</p>
         self.refVoltage = refVoltage
 
 
-    def disable(self):
-        #TODO really turn off
-        self.setVoltage(0)
-        
+
+
     def setVoltage(self,voltage):
+        &#34;&#34;&#34; Sets the output of this chip to a given voltage. The voltage must be smaller than the reference voltage&#34;&#34;&#34;
         #Vout= (k/2^n)*Vref
         if (voltage &lt; 0 or voltage &gt; self.refVoltage) :
             raise ValueError(&#39;Voltage mus be between 0 and reference Given: &#39; + str(voltage) + &#39; Reference Voltage: &#39; + str(self.refVoltage))
@@ -309,6 +312,7 @@ Sets the voltage to a given voltage.</p>
         self._setValue(defVal);
 
     def _setValue(self, value):
+        &#34;&#34;&#34; private fucntion, transmits commands to set a given voltage usin I2C&#34;&#34;&#34;
         logger.debug(&#34;Setting value of LTC2631: Value: &#34; + str(value) + &#34;bin: &#34; + bin(value)+&#34;  Mode : &#34; + str(self.mode) + &#34;  Address: &#34; + str(self.device_address))
 
 
@@ -316,26 +320,15 @@ Sets the voltage to a given voltage.</p>
 </details>
 <h3>Methods</h3>
 <dl>
-<dt id="flask_app.Driver.LTC2631.LTC2631.disable"><code class="name flex">
-<span>def <span class="ident">disable</span></span>(<span>self)</span>
-</code></dt>
-<dd>
-<section class="desc"></section>
-<details class="source">
-<summary>Source code</summary>
-<pre><code class="python">def disable(self):
-    #TODO really turn off
-    self.setVoltage(0)</code></pre>
-</details>
-</dd>
 <dt id="flask_app.Driver.LTC2631.LTC2631.setToExtRefMode"><code class="name flex">
 <span>def <span class="ident">setToExtRefMode</span></span>(<span>self, refVoltage)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>if this function is called, the external supply voltage connected to the chip will be used</p></section>
 <details class="source">
 <summary>Source code</summary>
 <pre><code class="python">def setToExtRefMode(self, refVoltage):
+    &#34;&#34;&#34; if this function is called, the external supply voltage connected to the chip will be used &#34;&#34;&#34;
     if(refVoltage &lt; 0):
         raise ValueError(&#39;Reference Voltage must be &gt; than 0. Given: &#39;+ str(refVoltage))
 
@@ -362,10 +355,11 @@ Sets the voltage to a given voltage.</p>
 <span>def <span class="ident">setVoltage</span></span>(<span>self, voltage)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>Sets the output of this chip to a given voltage. The voltage must be smaller than the reference voltage</p></section>
 <details class="source">
 <summary>Source code</summary>
 <pre><code class="python">def setVoltage(self,voltage):
+    &#34;&#34;&#34; Sets the output of this chip to a given voltage. The voltage must be smaller than the reference voltage&#34;&#34;&#34;
     #Vout= (k/2^n)*Vref
     if (voltage &lt; 0 or voltage &gt; self.refVoltage) :
         raise ValueError(&#39;Voltage mus be between 0 and reference Given: &#39; + str(voltage) + &#39; Reference Voltage: &#39; + str(self.refVoltage))
@@ -417,7 +411,6 @@ Sets the voltage to a given voltage.</p>
 <li>
 <h4><code><a title="flask_app.Driver.LTC2631.LTC2631" href="#flask_app.Driver.LTC2631.LTC2631">LTC2631</a></code></h4>
 <ul class="">
-<li><code><a title="flask_app.Driver.LTC2631.LTC2631.disable" href="#flask_app.Driver.LTC2631.LTC2631.disable">disable</a></code></li>
 <li><code><a title="flask_app.Driver.LTC2631.LTC2631.setToExtRefMode" href="#flask_app.Driver.LTC2631.LTC2631.setToExtRefMode">setToExtRefMode</a></code></li>
 <li><code><a title="flask_app.Driver.LTC2631.LTC2631.setToInternalRefMode" href="#flask_app.Driver.LTC2631.LTC2631.setToInternalRefMode">setToInternalRefMode</a></code></li>
 <li><code><a title="flask_app.Driver.LTC2631.LTC2631.setVoltage" href="#flask_app.Driver.LTC2631.LTC2631.setVoltage">setVoltage</a></code></li>

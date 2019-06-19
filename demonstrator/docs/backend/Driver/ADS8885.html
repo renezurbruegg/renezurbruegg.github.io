@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.6.2" />
 <title>flask_app.Driver.ADS8885 API documentation</title>
-<meta name="description" content="" />
+<meta name="description" content="Driver for the ADS8885 chip" />
 <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
 <link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
@@ -20,9 +20,11 @@
 <h1 class="title">Module <code>flask_app.Driver.ADS8885</code></h1>
 </header>
 <section id="section-intro">
+<p>Driver for the ADS8885 chip</p>
 <details class="source">
 <summary>Source code</summary>
-<pre><code class="python">import logging
+<pre><code class="python">&#34;&#34;&#34; Driver for the ADS8885 chip &#34;&#34;&#34;
+import logging
 
 logger = logging.getLogger(__name__)
 
@@ -61,16 +63,32 @@ SPI_CLK = 11
 
 
 class ResolutionScaler:
+    &#34;&#34;&#34; Class that offers a simple transform function. &lt;br&gt;
+        Used to alibrate a ADS8885 chip. &lt;br&gt;
+        The getScaledValue returns the real applied value before the voltage devider for a measured Value of the ADS chip.
+    &#34;&#34;&#34;
     def __init__(self, multiplier, offset):
         self.multiplier = multiplier
         self.offset = offset
 
     def getScaledValue(self, value):
+        &#34;&#34;&#34;Returns the real applied value before the voltage devider that corresponds to a measured value of the ADS chip.&#34;&#34;&#34;
         return self.multiplier * value + self.offset
 
 
 class ADS8885:
+    &#34;&#34;&#34;
+    A class used to represent the ADS8885 Chip.
+    ...
 
+    Attributes
+    ----------
+    pin1,pin2:  integer which represents the pinnumber of the PCAL chip to control the &lt;br&gt;
+                -VSel1/2 pin of the corresponding TS5A3359DCUR chip for the voltage measurement &lt;br&gt;
+                -IRngSel1/2 pin used for the current measurement &lt;br&gt;
+    measurement ==0 voltage measurement &lt;br&gt;
+                ==1 current measurement &lt;br&gt;
+    &#34;&#34;&#34;
     voltageMap = {
         1 : {
             &#34;unit&#34;:&#34;mV&#34;,
@@ -95,28 +113,17 @@ class ADS8885:
             &#34;max&#34;:50
         }
     }
-    &#34;&#34;&#34;
-    A class used to represent the ADS8885 Chip.
-    ...
 
-    Attributes
-    ----------
-    pin1,pin2:  integer which represents the pinnumber of the PCAL chip to control the
-                -VSel1/2 pin of the corresponding TS5A3359DCUR chip for the voltage measurement
-                -IRngSel1/2 pin used for the current measurement
-    measurement ==0 voltage measurement
-                ==1 current measurement
-    &#34;&#34;&#34;
 
     def __init__(self, name, measurement, pinAss1, pinAss2, ioExpander, cspin, resolutionScalers, vref = 2.5):
         self.name = name
         self.vref = vref
-        self.pinAss1=pinAss1
-        self.pinAss2=pinAss2
+        self.pinAss1 = pinAss1
+        self.pinAss2 = pinAss2
         self.ioExpander = ioExpander
         self.resolution = 1
         self.cspin = cspin
-        self.measurement=measurement
+        self.measurement = measurement
         self.autoResolution=False
 
         self.resolutionScalers = resolutionScalers
@@ -147,6 +154,8 @@ class ADS8885:
         #     GPIO.setup(self.cspin, GPIO.OUT)
 
     def getVoltage(self):
+        &#34;&#34;&#34; return the voltage that is measured by the ADS chip.
+        This voltage needs to be scaled up using the scaleToResolution function, to get the real applied voltage.&#34;&#34;&#34;
         # print(&#34;getVoltage in: &#34; + self.name)
 
         if(simul):
@@ -188,6 +197,7 @@ class ADS8885:
         return (-1) * value;
 
     def getVoltageFast(self):
+        &#34;&#34;&#34; Fast implementation of the getVoltage() function &#34;&#34;&#34;
         data = self.getAdcValue()
 
         MSB = (bool)((data &amp; (0b1 &lt;&lt; 17)) != 0)
@@ -200,6 +210,7 @@ class ADS8885:
         return value
 
     def scaleToResolution(self, value):
+        &#34;&#34;&#34; scales a measured value from the ADS chip to the real applied value using internal ResolutionScaler objects that are set when creating this class&#34;&#34;&#34;
         # print(self.name + &#34; get scale to resolution for value : &#34; + str(value))
         # print(self.resolution)
         # print(self.resolutionScalers[self.resolution].multiplier)
@@ -217,15 +228,21 @@ class ADS8885:
         # # return value;
 
     def getMaxRange(self):
+        &#34;&#34;&#34; Return the max value that can be measured in this range&#34;&#34;&#34;
         return self.resolutionMap[self.resolution][&#34;max&#34;]
 
     def getUnit(self):
+        &#34;&#34;&#34; Return the unit of this measurement&#34;&#34;&#34;
         return self.resolutionMap[self.resolution][&#34;unit&#34;]
 
     def getName(self):
+        &#34;&#34;&#34; Returns the name of this measurement device&#34;&#34;&#34;
         return self.name
 
     def getAdcValue(self):
+        &#34;&#34;&#34; gets the value of the ADS Chip. currently using an ugly SPI emulation using GPIO pins.
+        TODO: Fix errata of PCB and then use SPI library
+        &#34;&#34;&#34;
         if(simul):
             return random.randint(0,self.getMaxRange()) / 100
 
@@ -258,9 +275,11 @@ class ADS8885:
         return data;
 
     def setAutoResolution(self, autoResolution):
+        &#34;&#34;&#34; Enables the auto resolution function for this chip&#34;&#34;&#34;
         self.autoResolution=autoResolution
 
     def maxResolution(self):
+        &#34;&#34;&#34; return true if max resolution of the device is reached &#34;&#34;&#34;
         reached= False
         if self.measurement==0:
             if self.resolution==3:
@@ -271,11 +290,16 @@ class ADS8885:
         return reached
 
     def minResolution(self):
+        &#34;&#34;&#34; return true if min resolution of the device is reached &#34;&#34;&#34;
         reached= (self.resolution==1)
         return reached
 
 
     def setResolution(self,resolution):
+        &#34;&#34;&#34; Sets the resolution of this device. &lt;br&gt;
+            [V]: 1 -&gt; 50mV, 2 -&gt; 500mV, 3 -&gt; 5V &lt;br&gt;
+            [A]: 1 -&gt; 500uA, 2 -&gt; 50mA
+        &#34;&#34;&#34;
         logger.debug(&#34;set resolution: name: &#34; +str(self.name) + &#34; resolution: &#34; + str(resolution))
         self.resolution = resolution
         if self.measurement==0:
@@ -310,10 +334,11 @@ class ADS8885:
             else:
                 raise ValueError(&#39;resolution for current measurement must be 1 (for the 500uA range) or 2 (for the 50mA range)&#39;)
 
-    &#34;&#34;&#34;
-    returns ture if voltage is close to upper resolution limit
-    &#34;&#34;&#34;
+
     def reachedResolutionMax(self, value):
+        &#34;&#34;&#34;
+        returns true if voltage is close to upper resolution limit
+        &#34;&#34;&#34;
         tolerance=0
         reached=False
         resolution= self.resolution
@@ -332,7 +357,7 @@ class ADS8885:
                 reached= (absVal&gt;=(5-tolerance))
 
             else:
-                raise absValError(&#39;resolution for voltage measurement must be 1 (for the 50mV range), 2 (for the 500mV range) or 3 (for the 5V range)&#39;)
+                raise ValueError(&#39;resolution for voltage measurement must be 1 (for the 50mV range), 2 (for the 500mV range) or 3 (for the 5V range)&#39;)
 
         elif self.measurement == 1:
             #resolution=500uA
@@ -344,21 +369,22 @@ class ADS8885:
                 reached= (absVal&gt;=(50-tolerance))
 
             else:
-                raise absValError(&#39;resolution for current measurement must be 1 (for the 500uA range) or 2 (for the 50mA range)&#39;)
+                raise ValueError(&#39;resolution for current measurement must be 1 (for the 500uA range) or 2 (for the 50mA range)&#39;)
 
         else:
-                raise absValError(&#39;measurement for voltage measurement must be 0, measurement for current measurement must be 1&#39;)
+                raise ValueError(&#39;measurement for voltage measurement must be 0, measurement for current measurement must be 1&#39;)
         return reached
 
     def getDebugInfos(self):
+        &#34;&#34;&#34; Returns debug information about the chip (name, current resolution, maxRange etc.) &#34;&#34;&#34;
         ans = self.getName() + &#34; : &#34; + str(self.getMaxRange()) + &#34; : &#34; + str(self.resolution) + &#34;\n&#34;;
         ans += &#34;ADC values: &#34; +  str(self.getVoltage()) + &#34; adc val fast &#34; + str(self.getVoltageFast())
         return ans;
 
-    &#34;&#34;&#34;
-    returns ture if voltage is close to lower resolution limit
-    &#34;&#34;&#34;
     def reachedResolutionMin(self, value):
+        &#34;&#34;&#34;
+        Returns true if voltage is close to lower resolution limit
+        &#34;&#34;&#34;
         tolerance=0
         reached=False
         absVal = abs(value)
@@ -377,7 +403,7 @@ class ADS8885:
                 reached= (absVal&lt;=(0.5+tolerance))
 
             else:
-                raise absValError(&#39;resolution for voltage measurement must be 1 (for the 50mV range), 2 (for the 500mV range) or 3 (for the 5V range)&#39;)
+                raise ValueError(&#39;resolution for voltage measurement must be 1 (for the 50mV range), 2 (for the 500mV range) or 3 (for the 5V range)&#39;)
 
         elif self.measurement == 1:
             #resolution=500uA
@@ -389,151 +415,11 @@ class ADS8885:
                 reached= (absVal&lt;=(0.5+tolerance))
 
             else:
-                raise absValError(&#39;resolution for current measurement must be 1 (for the 500uA range) or 2 (for the 50mA range)&#39;)
+                raise ValueError(&#39;resolution for current measurement must be 1 (for the 500uA range) or 2 (for the 50mA range)&#39;)
 
         else:
-                raise absValError(&#39;measurement for voltage measurement must be 0, measurement for current measurement must be 1&#39;)
-        return reached
-#
-# import logging
-# try:
-#     import smbus
-# except ImportError:
-#     def _getBus(self, num):
-#         return self
-#     def read_word_data(self, adress, cmd):
-#         print(&#34;Mock Object -- read word data: addrress&#34; + str(adress) + &#34; cmd: &#34; + str(cmd))
-#         return 0
-#     def write_word_data(self, device_address, mode, value):
-#         print(&#34;Sendind word data emulation: to: &#34; + str(device_address) + &#34; mode: &#34; + str(mode)  + &#34; value: &#34; + str(value));
-#
-#     obj = type(&#39;&#39;,(object,),{&#39;read_word_data&#39;:read_word_data,&#39;SMBus&#39;:_getBus,&#39;write_word_data&#39;:write_word_data})()
-#     smbus = obj
-# try:
-#     import spidev
-#     simul = False
-# except ImportError:
-#     simul = True
-#     print(&#34;could not import spidev&#34;)
-# import RPi.GPIO as GPIO
-# # from .PCAL6416 import PCAL6416
-# # from .PCAL6416 import PinAssignment
-#
-# import random
-#
-# SPI_CLK = 23
-# SPI_MISO = 21
-# SPI_MOSI = 19
-#
-# logger = logging.getLogger(__name__)
-#
-#
-#
-# class ADS8885:
-#     &#34;&#34;&#34;
-#     A class used to represent the ADS8885 Chip.
-#     ...
-#
-#     Attributes
-#     ----------
-#     pin1,pin2:  integer which represents the pinnumber of the PCAL chip to control the
-#                 -VSel1/2 pin of the corresponding TS5A3359DCUR chip for the voltage measurement
-#                 -IRngSel1/2 pin used for the current measurement
-#     measurement ==0 voltage measurement
-#                 ==1 current measurement
-#     &#34;&#34;&#34;
-#
-#     def __init__(self, name, measurement, pinAss1, pinAss2, ioExpander, cspin):
-#         self.name = name
-#
-#         self.pinAss1=pinAss1
-#         self.pinAss2=pinAss2
-#         self.ioExpander = ioExpander
-#
-#         self.cspin = cspin
-#         self.measurement=measurement
-#
-#         if (simul==False):
-#             self.spi = spidev.SpiDev()
-#             # self.spi.bits_per_word = 8
-#             self.spi.open(0,1)
-#             self.spi.max_speed_hz = 7629 #Todo tweek
-#             self.spi.mode = 0b10
-#             self.spi.cshigh = True
-#             #self.spi.no_cs = True
-#             #self.spi.lsbfirst = True
-#             GPIO.setup(self.cspin, GPIO.OUT)
-#
-#     def getVoltage(self):
-#         if(simul):
-#             return random.random() * 5
-#
-#         # print(bin(0b11001))
-#         # print(bin(ReverseByteOrder(0b11001)))
-#         print(&#34;getting values for &#34; + str(self.name) + &#34; cspin: &#34; + str(self.cspin))
-#         data = [0xFF,0x00,0x00,0x00]
-#         # GPIO.output(self.cspin, GPIO.HIGH)
-#         resp = self.spi.xfer3(data)
-#         # GPIO.output(self.cspin, GPIO.LOW)
-#         #print(&#34;received bits in binary:&#34;)
-#         #for bit in resp:
-#         #    print(bin(bit))
-#
-#         print(&#34;received bytes &#34; + bin(resp[1]) + &#34; &#34; + bin(resp[2]) + &#34; &#34; + bin(resp[3]))
-#         val = int.from_bytes([resp[1], resp[2], resp[3]], byteorder=&#39;little&#39;)
-#
-#         print(&#34;received value &#34; + bin(val))
-#         #print(bin(val))
-#         #print(&#34;reorder MSB to LSB&#34;)
-#         #myVal = (int)(bin(val)[:1:-1],2)
-#         #print(bin(myVal))
-#         #val = (resp[1] &lt;&lt; 10) &amp; (0b11111) + (resp[2] &lt;&lt; 2) + (resp[3] &gt;&gt; 6)
-#         #print(&#34;mVal: &#34; + bin(val))
-#         # val = ReverseByteOrder(val)
-#         # val = ReverseByteOrder(resp[0]) + (ReverseByteOrder( resp[1] ) &lt;&lt; 8) +(ReverseByteOrder((resp[2] &amp; 0xC0) ) &lt;&lt; 16)
-#         #print(&#34;received value: &#34; + str(val) + &#34; bin: &#34; + bin(val) + &#34; hex: &#34; + hex(val))
-#         #maxVal = 2**18 - 1
-#         #realVal = (val/maxVal) * vref
-#         #print(&#34;Got real Value: &#34; + str(realVal))
-#         realVal = 5
-#         return realVal
-#
-#     def getName(self):
-#         return self.name
-#
-#     def setResolution(self,resolution):
-#
-#         if self.measurement==0:
-#             #resolution = 50mV
-#             if resolution== 1:
-#                 self.ioExpander.setVoltageLowOnPinAssignment(self.pinAss1)
-#                 self.ioExpander.setVoltageLowOnPinAssignment(self.pinAss2)
-#
-#             #resolution =500mV
-#             elif resolution== 2:
-#                 self.ioExpander.setVoltageHighOnPinAssignment(self.pinAss1)
-#                 self.ioExpander.setVoltageLowOnPinAssignment(self.pinAss2)
-#
-#             #resolution = 5V
-#             elif resolution== 3:
-#                 self.ioExpander.setVoltageLowOnPinAssignment(self.pinAss1)
-#                 self.ioExpander.setVoltageHighOnPinAssignment(self.pinAss2)
-#
-#             else:
-#                 raise ValueError(&#39;resolution for voltage measurement must be 1 (for the 50mV range), 2 (for the 500mV range) or 3 (for the 5V range)&#39;)
-#
-#
-#         elif (self.measurement == 1):
-#             #resolution=500uA
-#             if resolution ==1:
-#                 self.ioExpander.setVoltageHighOnPinAssignment(self.pinAss1)
-#                 self.ioExpander.setVoltageHighOnPinAssignment(self.pinAss2)
-#             #resolution=50mA
-#             elif resolution==2:
-#                 self.ioExpander.setVoltageHighOnPinAssignment(self.pinAss1)
-#                 self.ioExpander.setVoltageHighOnPinAssignment(self.pinAss2)
-#             else:
-#                 raise ValueError(&#39;resolution for current measurement must be 1 (for the 500uA range) or 2 (for the 50mA range)&#39;)</code></pre>
+                raise ValueError(&#39;measurement for voltage measurement must be 0, measurement for current measurement must be 1&#39;)
+        return reached</code></pre>
 </details>
 </section>
 <section>
@@ -576,11 +462,30 @@ class ADS8885:
 <span>(</span><span>name, measurement, pinAss1, pinAss2, ioExpander, cspin, resolutionScalers, vref=2.5)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>A class used to represent the ADS8885 Chip.
+&hellip;</p>
+<h2 id="attributes">Attributes</h2>
+<p>pin1,pin2:
+integer which represents the pinnumber of the PCAL chip to control the <br>
+-VSel1/2 pin of the corresponding TS5A3359DCUR chip for the voltage measurement <br>
+-IRngSel1/2 pin used for the current measurement <br>
+measurement ==0 voltage measurement <br>
+==1 current measurement <br></p></section>
 <details class="source">
 <summary>Source code</summary>
 <pre><code class="python">class ADS8885:
+    &#34;&#34;&#34;
+    A class used to represent the ADS8885 Chip.
+    ...
 
+    Attributes
+    ----------
+    pin1,pin2:  integer which represents the pinnumber of the PCAL chip to control the &lt;br&gt;
+                -VSel1/2 pin of the corresponding TS5A3359DCUR chip for the voltage measurement &lt;br&gt;
+                -IRngSel1/2 pin used for the current measurement &lt;br&gt;
+    measurement ==0 voltage measurement &lt;br&gt;
+                ==1 current measurement &lt;br&gt;
+    &#34;&#34;&#34;
     voltageMap = {
         1 : {
             &#34;unit&#34;:&#34;mV&#34;,
@@ -605,28 +510,17 @@ class ADS8885:
             &#34;max&#34;:50
         }
     }
-    &#34;&#34;&#34;
-    A class used to represent the ADS8885 Chip.
-    ...
 
-    Attributes
-    ----------
-    pin1,pin2:  integer which represents the pinnumber of the PCAL chip to control the
-                -VSel1/2 pin of the corresponding TS5A3359DCUR chip for the voltage measurement
-                -IRngSel1/2 pin used for the current measurement
-    measurement ==0 voltage measurement
-                ==1 current measurement
-    &#34;&#34;&#34;
 
     def __init__(self, name, measurement, pinAss1, pinAss2, ioExpander, cspin, resolutionScalers, vref = 2.5):
         self.name = name
         self.vref = vref
-        self.pinAss1=pinAss1
-        self.pinAss2=pinAss2
+        self.pinAss1 = pinAss1
+        self.pinAss2 = pinAss2
         self.ioExpander = ioExpander
         self.resolution = 1
         self.cspin = cspin
-        self.measurement=measurement
+        self.measurement = measurement
         self.autoResolution=False
 
         self.resolutionScalers = resolutionScalers
@@ -657,6 +551,8 @@ class ADS8885:
         #     GPIO.setup(self.cspin, GPIO.OUT)
 
     def getVoltage(self):
+        &#34;&#34;&#34; return the voltage that is measured by the ADS chip.
+        This voltage needs to be scaled up using the scaleToResolution function, to get the real applied voltage.&#34;&#34;&#34;
         # print(&#34;getVoltage in: &#34; + self.name)
 
         if(simul):
@@ -698,6 +594,7 @@ class ADS8885:
         return (-1) * value;
 
     def getVoltageFast(self):
+        &#34;&#34;&#34; Fast implementation of the getVoltage() function &#34;&#34;&#34;
         data = self.getAdcValue()
 
         MSB = (bool)((data &amp; (0b1 &lt;&lt; 17)) != 0)
@@ -710,6 +607,7 @@ class ADS8885:
         return value
 
     def scaleToResolution(self, value):
+        &#34;&#34;&#34; scales a measured value from the ADS chip to the real applied value using internal ResolutionScaler objects that are set when creating this class&#34;&#34;&#34;
         # print(self.name + &#34; get scale to resolution for value : &#34; + str(value))
         # print(self.resolution)
         # print(self.resolutionScalers[self.resolution].multiplier)
@@ -727,15 +625,21 @@ class ADS8885:
         # # return value;
 
     def getMaxRange(self):
+        &#34;&#34;&#34; Return the max value that can be measured in this range&#34;&#34;&#34;
         return self.resolutionMap[self.resolution][&#34;max&#34;]
 
     def getUnit(self):
+        &#34;&#34;&#34; Return the unit of this measurement&#34;&#34;&#34;
         return self.resolutionMap[self.resolution][&#34;unit&#34;]
 
     def getName(self):
+        &#34;&#34;&#34; Returns the name of this measurement device&#34;&#34;&#34;
         return self.name
 
     def getAdcValue(self):
+        &#34;&#34;&#34; gets the value of the ADS Chip. currently using an ugly SPI emulation using GPIO pins.
+        TODO: Fix errata of PCB and then use SPI library
+        &#34;&#34;&#34;
         if(simul):
             return random.randint(0,self.getMaxRange()) / 100
 
@@ -768,9 +672,11 @@ class ADS8885:
         return data;
 
     def setAutoResolution(self, autoResolution):
+        &#34;&#34;&#34; Enables the auto resolution function for this chip&#34;&#34;&#34;
         self.autoResolution=autoResolution
 
     def maxResolution(self):
+        &#34;&#34;&#34; return true if max resolution of the device is reached &#34;&#34;&#34;
         reached= False
         if self.measurement==0:
             if self.resolution==3:
@@ -781,11 +687,16 @@ class ADS8885:
         return reached
 
     def minResolution(self):
+        &#34;&#34;&#34; return true if min resolution of the device is reached &#34;&#34;&#34;
         reached= (self.resolution==1)
         return reached
 
 
     def setResolution(self,resolution):
+        &#34;&#34;&#34; Sets the resolution of this device. &lt;br&gt;
+            [V]: 1 -&gt; 50mV, 2 -&gt; 500mV, 3 -&gt; 5V &lt;br&gt;
+            [A]: 1 -&gt; 500uA, 2 -&gt; 50mA
+        &#34;&#34;&#34;
         logger.debug(&#34;set resolution: name: &#34; +str(self.name) + &#34; resolution: &#34; + str(resolution))
         self.resolution = resolution
         if self.measurement==0:
@@ -820,10 +731,11 @@ class ADS8885:
             else:
                 raise ValueError(&#39;resolution for current measurement must be 1 (for the 500uA range) or 2 (for the 50mA range)&#39;)
 
-    &#34;&#34;&#34;
-    returns ture if voltage is close to upper resolution limit
-    &#34;&#34;&#34;
+
     def reachedResolutionMax(self, value):
+        &#34;&#34;&#34;
+        returns true if voltage is close to upper resolution limit
+        &#34;&#34;&#34;
         tolerance=0
         reached=False
         resolution= self.resolution
@@ -842,7 +754,7 @@ class ADS8885:
                 reached= (absVal&gt;=(5-tolerance))
 
             else:
-                raise absValError(&#39;resolution for voltage measurement must be 1 (for the 50mV range), 2 (for the 500mV range) or 3 (for the 5V range)&#39;)
+                raise ValueError(&#39;resolution for voltage measurement must be 1 (for the 50mV range), 2 (for the 500mV range) or 3 (for the 5V range)&#39;)
 
         elif self.measurement == 1:
             #resolution=500uA
@@ -854,21 +766,22 @@ class ADS8885:
                 reached= (absVal&gt;=(50-tolerance))
 
             else:
-                raise absValError(&#39;resolution for current measurement must be 1 (for the 500uA range) or 2 (for the 50mA range)&#39;)
+                raise ValueError(&#39;resolution for current measurement must be 1 (for the 500uA range) or 2 (for the 50mA range)&#39;)
 
         else:
-                raise absValError(&#39;measurement for voltage measurement must be 0, measurement for current measurement must be 1&#39;)
+                raise ValueError(&#39;measurement for voltage measurement must be 0, measurement for current measurement must be 1&#39;)
         return reached
 
     def getDebugInfos(self):
+        &#34;&#34;&#34; Returns debug information about the chip (name, current resolution, maxRange etc.) &#34;&#34;&#34;
         ans = self.getName() + &#34; : &#34; + str(self.getMaxRange()) + &#34; : &#34; + str(self.resolution) + &#34;\n&#34;;
         ans += &#34;ADC values: &#34; +  str(self.getVoltage()) + &#34; adc val fast &#34; + str(self.getVoltageFast())
         return ans;
 
-    &#34;&#34;&#34;
-    returns ture if voltage is close to lower resolution limit
-    &#34;&#34;&#34;
     def reachedResolutionMin(self, value):
+        &#34;&#34;&#34;
+        Returns true if voltage is close to lower resolution limit
+        &#34;&#34;&#34;
         tolerance=0
         reached=False
         absVal = abs(value)
@@ -887,7 +800,7 @@ class ADS8885:
                 reached= (absVal&lt;=(0.5+tolerance))
 
             else:
-                raise absValError(&#39;resolution for voltage measurement must be 1 (for the 50mV range), 2 (for the 500mV range) or 3 (for the 5V range)&#39;)
+                raise ValueError(&#39;resolution for voltage measurement must be 1 (for the 50mV range), 2 (for the 500mV range) or 3 (for the 5V range)&#39;)
 
         elif self.measurement == 1:
             #resolution=500uA
@@ -899,25 +812,17 @@ class ADS8885:
                 reached= (absVal&lt;=(0.5+tolerance))
 
             else:
-                raise absValError(&#39;resolution for current measurement must be 1 (for the 500uA range) or 2 (for the 50mA range)&#39;)
+                raise ValueError(&#39;resolution for current measurement must be 1 (for the 500uA range) or 2 (for the 50mA range)&#39;)
 
         else:
-                raise absValError(&#39;measurement for voltage measurement must be 0, measurement for current measurement must be 1&#39;)
+                raise ValueError(&#39;measurement for voltage measurement must be 0, measurement for current measurement must be 1&#39;)
         return reached</code></pre>
 </details>
 <h3>Class variables</h3>
 <dl>
 <dt id="flask_app.Driver.ADS8885.ADS8885.currentMap"><code class="name">var <span class="ident">currentMap</span></code></dt>
 <dd>
-<section class="desc"><p>A class used to represent the ADS8885 Chip.
-&hellip;</p>
-<h2 id="attributes">Attributes</h2>
-<p>pin1,pin2:
-integer which represents the pinnumber of the PCAL chip to control the
--VSel1/2 pin of the corresponding TS5A3359DCUR chip for the voltage measurement
--IRngSel1/2 pin used for the current measurement
-measurement ==0 voltage measurement
-==1 current measurement</p></section>
+<section class="desc"></section>
 </dd>
 <dt id="flask_app.Driver.ADS8885.ADS8885.voltageMap"><code class="name">var <span class="ident">voltageMap</span></code></dt>
 <dd>
@@ -930,10 +835,14 @@ measurement ==0 voltage measurement
 <span>def <span class="ident">getAdcValue</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>gets the value of the ADS Chip. currently using an ugly SPI emulation using GPIO pins.
+TODO: Fix errata of PCB and then use SPI library</p></section>
 <details class="source">
 <summary>Source code</summary>
 <pre><code class="python">def getAdcValue(self):
+    &#34;&#34;&#34; gets the value of the ADS Chip. currently using an ugly SPI emulation using GPIO pins.
+    TODO: Fix errata of PCB and then use SPI library
+    &#34;&#34;&#34;
     if(simul):
         return random.randint(0,self.getMaxRange()) / 100
 
@@ -970,10 +879,11 @@ measurement ==0 voltage measurement
 <span>def <span class="ident">getDebugInfos</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>Returns debug information about the chip (name, current resolution, maxRange etc.)</p></section>
 <details class="source">
 <summary>Source code</summary>
 <pre><code class="python">def getDebugInfos(self):
+    &#34;&#34;&#34; Returns debug information about the chip (name, current resolution, maxRange etc.) &#34;&#34;&#34;
     ans = self.getName() + &#34; : &#34; + str(self.getMaxRange()) + &#34; : &#34; + str(self.resolution) + &#34;\n&#34;;
     ans += &#34;ADC values: &#34; +  str(self.getVoltage()) + &#34; adc val fast &#34; + str(self.getVoltageFast())
     return ans;</code></pre>
@@ -983,10 +893,11 @@ measurement ==0 voltage measurement
 <span>def <span class="ident">getMaxRange</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>Return the max value that can be measured in this range</p></section>
 <details class="source">
 <summary>Source code</summary>
 <pre><code class="python">def getMaxRange(self):
+    &#34;&#34;&#34; Return the max value that can be measured in this range&#34;&#34;&#34;
     return self.resolutionMap[self.resolution][&#34;max&#34;]</code></pre>
 </details>
 </dd>
@@ -994,10 +905,11 @@ measurement ==0 voltage measurement
 <span>def <span class="ident">getName</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>Returns the name of this measurement device</p></section>
 <details class="source">
 <summary>Source code</summary>
 <pre><code class="python">def getName(self):
+    &#34;&#34;&#34; Returns the name of this measurement device&#34;&#34;&#34;
     return self.name</code></pre>
 </details>
 </dd>
@@ -1005,10 +917,11 @@ measurement ==0 voltage measurement
 <span>def <span class="ident">getUnit</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>Return the unit of this measurement</p></section>
 <details class="source">
 <summary>Source code</summary>
 <pre><code class="python">def getUnit(self):
+    &#34;&#34;&#34; Return the unit of this measurement&#34;&#34;&#34;
     return self.resolutionMap[self.resolution][&#34;unit&#34;]</code></pre>
 </details>
 </dd>
@@ -1016,10 +929,13 @@ measurement ==0 voltage measurement
 <span>def <span class="ident">getVoltage</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>return the voltage that is measured by the ADS chip.
+This voltage needs to be scaled up using the scaleToResolution function, to get the real applied voltage.</p></section>
 <details class="source">
 <summary>Source code</summary>
 <pre><code class="python">def getVoltage(self):
+    &#34;&#34;&#34; return the voltage that is measured by the ADS chip.
+    This voltage needs to be scaled up using the scaleToResolution function, to get the real applied voltage.&#34;&#34;&#34;
     # print(&#34;getVoltage in: &#34; + self.name)
 
     if(simul):
@@ -1065,10 +981,11 @@ measurement ==0 voltage measurement
 <span>def <span class="ident">getVoltageFast</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>Fast implementation of the getVoltage() function</p></section>
 <details class="source">
 <summary>Source code</summary>
 <pre><code class="python">def getVoltageFast(self):
+    &#34;&#34;&#34; Fast implementation of the getVoltage() function &#34;&#34;&#34;
     data = self.getAdcValue()
 
     MSB = (bool)((data &amp; (0b1 &lt;&lt; 17)) != 0)
@@ -1085,10 +1002,11 @@ measurement ==0 voltage measurement
 <span>def <span class="ident">maxResolution</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>return true if max resolution of the device is reached</p></section>
 <details class="source">
 <summary>Source code</summary>
 <pre><code class="python">def maxResolution(self):
+    &#34;&#34;&#34; return true if max resolution of the device is reached &#34;&#34;&#34;
     reached= False
     if self.measurement==0:
         if self.resolution==3:
@@ -1103,10 +1021,11 @@ measurement ==0 voltage measurement
 <span>def <span class="ident">minResolution</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>return true if min resolution of the device is reached</p></section>
 <details class="source">
 <summary>Source code</summary>
 <pre><code class="python">def minResolution(self):
+    &#34;&#34;&#34; return true if min resolution of the device is reached &#34;&#34;&#34;
     reached= (self.resolution==1)
     return reached</code></pre>
 </details>
@@ -1115,10 +1034,13 @@ measurement ==0 voltage measurement
 <span>def <span class="ident">reachedResolutionMax</span></span>(<span>self, value)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>returns true if voltage is close to upper resolution limit</p></section>
 <details class="source">
 <summary>Source code</summary>
 <pre><code class="python">def reachedResolutionMax(self, value):
+    &#34;&#34;&#34;
+    returns true if voltage is close to upper resolution limit
+    &#34;&#34;&#34;
     tolerance=0
     reached=False
     resolution= self.resolution
@@ -1137,7 +1059,7 @@ measurement ==0 voltage measurement
             reached= (absVal&gt;=(5-tolerance))
 
         else:
-            raise absValError(&#39;resolution for voltage measurement must be 1 (for the 50mV range), 2 (for the 500mV range) or 3 (for the 5V range)&#39;)
+            raise ValueError(&#39;resolution for voltage measurement must be 1 (for the 50mV range), 2 (for the 500mV range) or 3 (for the 5V range)&#39;)
 
     elif self.measurement == 1:
         #resolution=500uA
@@ -1149,10 +1071,10 @@ measurement ==0 voltage measurement
             reached= (absVal&gt;=(50-tolerance))
 
         else:
-            raise absValError(&#39;resolution for current measurement must be 1 (for the 500uA range) or 2 (for the 50mA range)&#39;)
+            raise ValueError(&#39;resolution for current measurement must be 1 (for the 500uA range) or 2 (for the 50mA range)&#39;)
 
     else:
-            raise absValError(&#39;measurement for voltage measurement must be 0, measurement for current measurement must be 1&#39;)
+            raise ValueError(&#39;measurement for voltage measurement must be 0, measurement for current measurement must be 1&#39;)
     return reached</code></pre>
 </details>
 </dd>
@@ -1160,10 +1082,13 @@ measurement ==0 voltage measurement
 <span>def <span class="ident">reachedResolutionMin</span></span>(<span>self, value)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>Returns true if voltage is close to lower resolution limit</p></section>
 <details class="source">
 <summary>Source code</summary>
 <pre><code class="python">def reachedResolutionMin(self, value):
+    &#34;&#34;&#34;
+    Returns true if voltage is close to lower resolution limit
+    &#34;&#34;&#34;
     tolerance=0
     reached=False
     absVal = abs(value)
@@ -1182,7 +1107,7 @@ measurement ==0 voltage measurement
             reached= (absVal&lt;=(0.5+tolerance))
 
         else:
-            raise absValError(&#39;resolution for voltage measurement must be 1 (for the 50mV range), 2 (for the 500mV range) or 3 (for the 5V range)&#39;)
+            raise ValueError(&#39;resolution for voltage measurement must be 1 (for the 50mV range), 2 (for the 500mV range) or 3 (for the 5V range)&#39;)
 
     elif self.measurement == 1:
         #resolution=500uA
@@ -1194,10 +1119,10 @@ measurement ==0 voltage measurement
             reached= (absVal&lt;=(0.5+tolerance))
 
         else:
-            raise absValError(&#39;resolution for current measurement must be 1 (for the 500uA range) or 2 (for the 50mA range)&#39;)
+            raise ValueError(&#39;resolution for current measurement must be 1 (for the 500uA range) or 2 (for the 50mA range)&#39;)
 
     else:
-            raise absValError(&#39;measurement for voltage measurement must be 0, measurement for current measurement must be 1&#39;)
+            raise ValueError(&#39;measurement for voltage measurement must be 0, measurement for current measurement must be 1&#39;)
     return reached</code></pre>
 </details>
 </dd>
@@ -1205,10 +1130,11 @@ measurement ==0 voltage measurement
 <span>def <span class="ident">scaleToResolution</span></span>(<span>self, value)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>scales a measured value from the ADS chip to the real applied value using internal ResolutionScaler objects that are set when creating this class</p></section>
 <details class="source">
 <summary>Source code</summary>
 <pre><code class="python">def scaleToResolution(self, value):
+    &#34;&#34;&#34; scales a measured value from the ADS chip to the real applied value using internal ResolutionScaler objects that are set when creating this class&#34;&#34;&#34;
     # print(self.name + &#34; get scale to resolution for value : &#34; + str(value))
     # print(self.resolution)
     # print(self.resolutionScalers[self.resolution].multiplier)
@@ -1221,10 +1147,11 @@ measurement ==0 voltage measurement
 <span>def <span class="ident">setAutoResolution</span></span>(<span>self, autoResolution)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>Enables the auto resolution function for this chip</p></section>
 <details class="source">
 <summary>Source code</summary>
 <pre><code class="python">def setAutoResolution(self, autoResolution):
+    &#34;&#34;&#34; Enables the auto resolution function for this chip&#34;&#34;&#34;
     self.autoResolution=autoResolution</code></pre>
 </details>
 </dd>
@@ -1232,10 +1159,16 @@ measurement ==0 voltage measurement
 <span>def <span class="ident">setResolution</span></span>(<span>self, resolution)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>Sets the resolution of this device. <br>
+[V]: 1 -&gt; 50mV, 2 -&gt; 500mV, 3 -&gt; 5V <br>
+[A]: 1 -&gt; 500uA, 2 -&gt; 50mA</p></section>
 <details class="source">
 <summary>Source code</summary>
 <pre><code class="python">def setResolution(self,resolution):
+    &#34;&#34;&#34; Sets the resolution of this device. &lt;br&gt;
+        [V]: 1 -&gt; 50mV, 2 -&gt; 500mV, 3 -&gt; 5V &lt;br&gt;
+        [A]: 1 -&gt; 500uA, 2 -&gt; 50mA
+    &#34;&#34;&#34;
     logger.debug(&#34;set resolution: name: &#34; +str(self.name) + &#34; resolution: &#34; + str(resolution))
     self.resolution = resolution
     if self.measurement==0:
@@ -1278,15 +1211,22 @@ measurement ==0 voltage measurement
 <span>(</span><span>multiplier, offset)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>Class that offers a simple transform function. <br>
+Used to alibrate a ADS8885 chip. <br>
+The getScaledValue returns the real applied value before the voltage devider for a measured Value of the ADS chip.</p></section>
 <details class="source">
 <summary>Source code</summary>
 <pre><code class="python">class ResolutionScaler:
+    &#34;&#34;&#34; Class that offers a simple transform function. &lt;br&gt;
+        Used to alibrate a ADS8885 chip. &lt;br&gt;
+        The getScaledValue returns the real applied value before the voltage devider for a measured Value of the ADS chip.
+    &#34;&#34;&#34;
     def __init__(self, multiplier, offset):
         self.multiplier = multiplier
         self.offset = offset
 
     def getScaledValue(self, value):
+        &#34;&#34;&#34;Returns the real applied value before the voltage devider that corresponds to a measured value of the ADS chip.&#34;&#34;&#34;
         return self.multiplier * value + self.offset</code></pre>
 </details>
 <h3>Methods</h3>
@@ -1295,10 +1235,11 @@ measurement ==0 voltage measurement
 <span>def <span class="ident">getScaledValue</span></span>(<span>self, value)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>Returns the real applied value before the voltage devider that corresponds to a measured value of the ADS chip.</p></section>
 <details class="source">
 <summary>Source code</summary>
 <pre><code class="python">def getScaledValue(self, value):
+    &#34;&#34;&#34;Returns the real applied value before the voltage devider that corresponds to a measured value of the ADS chip.&#34;&#34;&#34;
     return self.multiplier * value + self.offset</code></pre>
 </details>
 </dd>

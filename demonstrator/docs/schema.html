@@ -1,0 +1,1511 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Conf.json Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+		   <link rel="stylesheet" href="./backend/styles/style.css">
+    <style>
+	body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+code {
+color:black;
+}
+code.json.language-json {
+    color: black !important;
+}
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url("../../images/modules/styleguide/para.png") no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url("../../images/modules/pulls/dirty-shade.png") repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0; }
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+ul :last-child, ol :last-child {
+  margin-bottom: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+	</style>
+	</head>
+    <body>
+
+<div class="container">
+<h3>Conf.json - Root Schema</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Nullable</th>
+<th>Default</th>
+<th>Defined by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#charts">charts</a></td>
+<td><code>object[]</code></td>
+<td><strong>Required</strong></td>
+<td>No</td>
+<td></td>
+<td>The Root Schema (this schema)</td>
+</tr>
+<tr>
+<td><a href="#deployment">deployment</a></td>
+<td><code>object</code></td>
+<td><strong>Required</strong></td>
+<td>No</td>
+<td></td>
+<td>The Root Schema (this schema)</td>
+</tr>
+<tr>
+<td><a href="#general">general</a></td>
+<td><code>object</code></td>
+<td><strong>Required</strong></td>
+<td>No</td>
+<td></td>
+<td>The Root Schema (this schema)</td>
+</tr>
+<tr>
+<td><a href="#supplies">supplies</a></td>
+<td><code>object[]</code></td>
+<td><strong>Required</strong></td>
+<td>No</td>
+<td><code>null</code></td>
+<td>The Root Schema (this schema)</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>any</td>
+<td>Additional</td>
+<td>Yes</td>
+<td>this schema <em>allows</em> additional properties</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>charts</h4>
+<h5>The Charts Schema</h5>
+<p><code>charts</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>object[]</code></li>
+<li>defined in this schema</li>
+</ul>
+<h5>charts Type</h5>
+<p>Array type: <code>object[]</code></p>
+<p>All items must be of the type: <code>object</code> with following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>axes</code></td>
+<td>array</td>
+<td><strong>Required</strong></td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><code>chartId</code></td>
+<td>string</td>
+<td><strong>Required</strong></td>
+<td><code>""</code></td>
+</tr>
+<tr>
+<td><code>col</code></td>
+<td>object</td>
+<td><strong>Required</strong></td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><code>datasets</code></td>
+<td>array</td>
+<td><strong>Required</strong></td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><code>maxValues</code></td>
+<td>integer</td>
+<td><strong>Required</strong></td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td><strong>Required</strong></td>
+<td><code>""</code></td>
+</tr>
+</tbody>
+</table>
+<h6>axes</h6>
+List containing all axis of this chart
+<p><code>axes</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>object[]</code></li>
+<li>default: <code>null</code></li>
+</ul>
+axes Type
+<p>Array type: <code>object[]</code></p>
+<p>All items must be of the type: <code>object</code> with following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>string</td>
+<td><strong>Required</strong></td>
+<td><code>""</code></td>
+</tr>
+<tr>
+<td><code>position</code></td>
+<td>string</td>
+<td><strong>Required</strong></td>
+<td><code>""</code></td>
+</tr>
+</tbody>
+</table>
+<h6>id</h6>
+Unique axis id
+<p><code>id</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>string</code></li>
+<li>default: <code>""</code></li>
+</ul>
+id Type
+<p><code>string</code></p>
+id Example
+<pre><code class="json language-json">yAxis1</code></pre>
+<h6>position</h6>
+Position of the chart (left/right)
+<p><code>position</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>string</code></li>
+<li>default: <code>""</code></li>
+</ul>
+position Type
+<p><code>string</code></p>
+position Examples
+<pre><code class="json language-json">left</code></pre>
+<pre><code class="json language-json">right</code></pre>
+<h6>chartId</h6>
+Unique ID of the Chart
+<p><code>chartId</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>string</code></li>
+<li>default: <code>""</code></li>
+</ul>
+chartId Type
+<p><code>string</code></p>
+chartId Example
+<pre><code class="json language-json">Chart#1</code></pre>
+<h6>col</h6>
+Chart Column
+<p>Defines the width of the cahrt</p>
+<p><code>col</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>object</code></li>
+<li>default: <code>null</code></li>
+</ul>
+col Type
+<p><code>object</code> with following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lg</code></td>
+<td>integer</td>
+<td><strong>Required</strong></td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>md</code></td>
+<td>integer</td>
+<td><strong>Required</strong></td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>sm</code></td>
+<td>integer</td>
+<td><strong>Required</strong></td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>xs</code></td>
+<td>integer</td>
+<td><strong>Required</strong></td>
+<td><code>0</code></td>
+</tr>
+</tbody>
+</table>
+<h6>lg</h6>
+Large
+<p>Width in large devices [0-12]</p>
+<p><code>lg</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>integer</code></li>
+<li>default: <code>0</code></li>
+</ul>
+lg Type
+<p><code>integer</code></p>
+lg Example
+<pre><code class="json language-json">6</code></pre>
+<h6>md</h6>
+Medium
+<p>Width in medium Devices [0-12]</p>
+<p><code>md</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>integer</code></li>
+<li>default: <code>0</code></li>
+</ul>
+md Type
+<p><code>integer</code></p>
+md Example
+<pre><code class="json language-json">12</code></pre>
+<h6>sm</h6>
+Small
+<p>Width in small devices [0-12]</p>
+<p><code>sm</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>integer</code></li>
+<li>default: <code>0</code></li>
+</ul>
+sm Type
+<p><code>integer</code></p>
+sm Example
+<pre><code class="json language-json">12</code></pre>
+<h6>xs</h6>
+X-tra small
+<p>Width in really small devices [0-12]</p>
+<p><code>xs</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>integer</code></li>
+<li>default: <code>0</code></li>
+</ul>
+xs Type
+<p><code>integer</code></p>
+xs Example
+<pre><code class="json language-json">12</code></pre>
+<h6>datasets</h6>
+List containing all datasets that belong to this chart
+<p><code>datasets</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>object[]</code></li>
+<li>default: <code>null</code></li>
+</ul>
+datasets Type
+<p>Array type: <code>object[]</code></p>
+<p>All items must be of the type: <code>object</code> with following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>autoLabel</code></td>
+<td>boolean</td>
+<td><strong>Required</strong></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code>autoRange</code></td>
+<td>boolean</td>
+<td><strong>Required</strong></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code>borderColor</code></td>
+<td>string</td>
+<td><strong>Required</strong></td>
+<td><code>""</code></td>
+</tr>
+<tr>
+<td><code>chartDataset</code></td>
+<td>object</td>
+<td><strong>Required</strong></td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><code>customDataHandlerEnabled</code></td>
+<td>boolean</td>
+<td><strong>Required</strong></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code>datasetId</code></td>
+<td>string</td>
+<td><strong>Required</strong></td>
+<td><code>""</code></td>
+</tr>
+<tr>
+<td><code>handler</code></td>
+<td>string</td>
+<td><strong>Required</strong></td>
+<td><code>""</code></td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td><strong>Required</strong></td>
+<td><code>""</code></td>
+</tr>
+<tr>
+<td><code>negRange</code></td>
+<td>boolean</td>
+<td><strong>Required</strong></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code>sourceId</code></td>
+<td>string</td>
+<td><strong>Required</strong></td>
+<td><code>""</code></td>
+</tr>
+<tr>
+<td><code>unit</code></td>
+<td>string</td>
+<td><strong>Required</strong></td>
+<td><code>""</code></td>
+</tr>
+</tbody>
+</table>
+<h6>autoLabel</h6>
+Generate dataset label automatically
+<p><code>autoLabel</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>boolean</code></li>
+<li>default: <code>false</code></li>
+</ul>
+autoLabel Type
+<p><code>boolean</code></p>
+autoLabel Example
+<pre><code class="json language-json">true</code></pre>
+<h6>autoRange</h6>
+Scale axis automatically to measurement resolution
+<p><code>autoRange</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>boolean</code></li>
+<li>default: <code>false</code></li>
+</ul>
+autoRange Type
+<p><code>boolean</code></p>
+autoRange Example
+<pre><code class="json language-json">true</code></pre>
+<h6>borderColor</h6>
+Linecolor of the dataset
+<p><code>borderColor</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>string</code></li>
+<li>default: <code>""</code></li>
+</ul>
+borderColor Type
+<p><code>string</code></p>
+borderColor Example
+<pre><code class="json language-json">#2196f3</code></pre>
+<h6>chartDataset</h6>
+ChartJs object that gets transmitted to the chart
+<p><code>chartDataset</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>object</code></li>
+<li>default: <code>null</code></li>
+</ul>
+chartDataset Type
+<p><code>object</code> with following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>borderColor</code></td>
+<td>string</td>
+<td><strong>Required</strong></td>
+<td><code>""</code></td>
+</tr>
+<tr>
+<td><code>currValue</code></td>
+<td>number</td>
+<td><strong>Required</strong></td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>fill</code></td>
+<td>boolean</td>
+<td><strong>Required</strong></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code>label</code></td>
+<td>string</td>
+<td><strong>Required</strong></td>
+<td><code>""</code></td>
+</tr>
+<tr>
+<td><code>yAxisID</code></td>
+<td>string</td>
+<td><strong>Required</strong></td>
+<td><code>""</code></td>
+</tr>
+</tbody>
+</table>
+<h6>borderColor</h6>
+Color of the line in the graph
+<p><code>borderColor</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>string</code></li>
+<li>default: <code>""</code></li>
+</ul>
+borderColor Type
+<p><code>string</code></p>
+borderColor Example
+<pre><code class="json language-json">#0618f9</code></pre>
+<h6>currValue</h6>
+Current value, gets set automatically
+<p><code>currValue</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>number</code></li>
+<li>default: <code>0</code></li>
+</ul>
+currValue Type
+<p><code>number</code></p>
+currValue Example
+<pre><code class="json language-json">24.536</code></pre>
+<h6>fill</h6>
+Fill area under line in chart
+<p><code>fill</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>boolean</code></li>
+<li>default: <code>false</code></li>
+</ul>
+fill Type
+<p><code>boolean</code></p>
+fill Example
+<pre><code class="json language-json">false</code></pre>
+<h6>label</h6>
+Label of the dataset
+<p><code>label</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>string</code></li>
+<li>default: <code>""</code></li>
+</ul>
+label Type
+<p><code>string</code></p>
+label Example
+<pre><code class="json language-json">Voltage vm1[mV]</code></pre>
+<h6>yAxisID</h6>
+ID of the corresponding axis
+<p><code>yAxisID</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>string</code></li>
+<li>default: <code>""</code></li>
+</ul>
+yAxisID Type
+<p><code>string</code></p>
+yAxisID Example
+<pre><code class="json language-json">yAxis1</code></pre>
+<h6>customDataHandlerEnabled</h6>
+Enable custom handler function for this dataset
+<p><code>customDataHandlerEnabled</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>boolean</code></li>
+<li>default: <code>false</code></li>
+</ul>
+customDataHandlerEnabled Type
+<p><code>boolean</code></p>
+customDataHandlerEnabled Example
+<pre><code class="json language-json">false</code></pre>
+<h6>datasetId</h6>
+Unique datset id
+<p><code>datasetId</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>string</code></li>
+<li>default: <code>""</code></li>
+</ul>
+datasetId Type
+<p><code>string</code></p>
+datasetId Example
+<pre><code class="json language-json">ADS1dataset</code></pre>
+<h6>handler</h6>
+Custom javascript function to transform measurements
+<p><code>handler</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>string</code></li>
+<li>default: <code>""</code></li>
+</ul>
+handler Type
+<p><code>string</code></p>
+handler Example
+<pre><code class="json language-json"></code></pre>
+<h6>name</h6>
+Name of the Dataset
+<p><code>name</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>string</code></li>
+<li>default: <code>""</code></li>
+</ul>
+name Type
+<p><code>string</code></p>
+name Example
+<pre><code class="json language-json">Voltage vm1</code></pre>
+<h6>negRange</h6>
+Enable negativ ranges in axis
+<p><code>negRange</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>boolean</code></li>
+<li>default: <code>false</code></li>
+</ul>
+negRange Type
+<p><code>boolean</code></p>
+negRange Example
+<pre><code class="json language-json">false</code></pre>
+<h6>sourceId</h6>
+ID of the measurement device that collects data for this dataset
+<p><code>sourceId</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>string</code></li>
+<li>default: <code>""</code></li>
+</ul>
+sourceId Type
+<p><code>string</code></p>
+sourceId Example
+<pre><code class="json language-json">vm1</code></pre>
+<h6>unit</h6>
+Unit of this dataset
+<p><code>unit</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>string</code></li>
+<li>default: <code>""</code></li>
+</ul>
+unit Type
+<p><code>string</code></p>
+unit Example
+<pre><code class="json language-json">mV</code></pre>
+<h6>maxValues</h6>
+Maximum data points
+<p>Max amount of datapoints that are visible in this chart</p>
+<p><code>maxValues</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>integer</code></li>
+<li>default: <code>0</code></li>
+</ul>
+maxValues Type
+<p><code>integer</code></p>
+maxValues Example
+<pre><code class="json language-json">40</code></pre>
+<h6>name</h6>
+The Name Schema
+<p><code>name</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>string</code></li>
+<li>default: <code>""</code></li>
+</ul>
+name Type
+<p><code>string</code></p>
+name Example
+<pre><code class="json language-json">Voltage chart</code></pre>
+<h4>deployment</h4>
+<h5>The Deployment Schema</h5>
+<p><code>deployment</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>object</code></li>
+<li>defined in this schema</li>
+</ul>
+<h5>deployment Type</h5>
+<p><code>object</code> with following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>apiLink</code></td>
+<td>string</td>
+<td><strong>Required</strong></td>
+<td><code>""</code></td>
+</tr>
+<tr>
+<td><code>apiPort</code></td>
+<td>string</td>
+<td><strong>Required</strong></td>
+<td><code>""</code></td>
+</tr>
+<tr>
+<td><code>host</code></td>
+<td>string</td>
+<td><strong>Required</strong></td>
+<td><code>""</code></td>
+</tr>
+<tr>
+<td><code>protocol</code></td>
+<td>string</td>
+<td><strong>Required</strong></td>
+<td><code>""</code></td>
+</tr>
+</tbody>
+</table>
+<h6>apiLink</h6>
+Link to the api functions
+<p><code>apiLink</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>string</code></li>
+<li>default: <code>""</code></li>
+</ul>
+apiLink Type
+<p><code>string</code></p>
+apiLink Example
+<pre><code class="json language-json">/api</code></pre>
+<h6>apiPort</h6>
+Port on which backend is running
+<p><code>apiPort</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>string</code></li>
+<li>default: <code>""</code></li>
+</ul>
+apiPort Type
+<p><code>string</code></p>
+apiPort Example
+<pre><code class="json language-json">8080</code></pre>
+<h6>host</h6>
+IP of the backend. Gets set automatically from hosts.json file
+<p><code>host</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>string</code></li>
+<li>default: <code>""</code></li>
+</ul>
+host Type
+<p><code>string</code></p>
+host Example
+<pre><code class="json language-json">localhost</code></pre>
+<h6>protocol</h6>
+Protocol to use to connect to the backend
+<p><code>protocol</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>string</code></li>
+<li>default: <code>""</code></li>
+</ul>
+protocol Type
+<p><code>string</code></p>
+protocol Example
+<pre><code class="json language-json">http</code></pre>
+<h4>general</h4>
+<h5>The General Schema</h5>
+<p><code>general</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>object</code></li>
+<li>defined in this schema</li>
+</ul>
+<h5>general Type</h5>
+<p><code>object</code> with following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>chartOptions</code></td>
+<td>object</td>
+<td><strong>Required</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><code>timerInterval</code></td>
+<td>integer</td>
+<td><strong>Required</strong></td>
+<td><code>0</code></td>
+</tr>
+</tbody>
+</table>
+<h6>chartOptions</h6>
+The Chartoptions Schema
+<p><code>chartOptions</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>object</code></li>
+</ul>
+chartOptions Type
+<p><code>object</code> with following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>animation</code></td>
+<td>object</td>
+<td><strong>Required</strong></td>
+</tr>
+<tr>
+<td><code>legend</code></td>
+<td>object</td>
+<td><strong>Required</strong></td>
+</tr>
+<tr>
+<td><code>scales</code></td>
+<td>object</td>
+<td><strong>Required</strong></td>
+</tr>
+</tbody>
+</table>
+<h6>animation</h6>
+The Animation Schema
+<p><code>animation</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>object</code></li>
+</ul>
+animation Type
+<p><code>object</code> with following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>duration</code></td>
+<td>integer</td>
+<td><strong>Required</strong></td>
+<td><code>0</code></td>
+</tr>
+</tbody>
+</table>
+<h6>duration</h6>
+The Duration Schema
+<p><code>duration</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>integer</code></li>
+<li>default: <code>0</code></li>
+</ul>
+duration Type
+<p><code>integer</code></p>
+duration Example
+<pre><code class="json language-json">0</code></pre>
+<h6>legend</h6>
+The Legend Schema
+<p><code>legend</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>object</code></li>
+</ul>
+legend Type
+<p><code>object</code> with following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>display</code></td>
+<td>boolean</td>
+<td><strong>Required</strong></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code>labels</code></td>
+<td>object</td>
+<td><strong>Required</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h6>display</h6>
+The Display Schema
+<p><code>display</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>boolean</code></li>
+<li>default: <code>false</code></li>
+</ul>
+display Type
+<p><code>boolean</code></p>
+display Example
+<pre><code class="json language-json">true</code></pre>
+<h6>labels</h6>
+The Labels Schema
+<p><code>labels</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>object</code></li>
+</ul>
+labels Type
+<p><code>object</code> with following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fontColor</code></td>
+<td>string</td>
+<td><strong>Required</strong></td>
+<td><code>""</code></td>
+</tr>
+</tbody>
+</table>
+<h6>fontColor</h6>
+The Fontcolor Schema
+<p><code>fontColor</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>string</code></li>
+<li>default: <code>""</code></li>
+</ul>
+fontColor Type
+<p><code>string</code></p>
+fontColor Example
+<pre><code class="json language-json">#000080</code></pre>
+<h6>scales</h6>
+The Scales Schema
+<p><code>scales</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>object</code></li>
+</ul>
+scales Type
+<p><code>object</code> with following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>xAxes</code></td>
+<td>array</td>
+<td><strong>Required</strong></td>
+</tr>
+</tbody>
+</table>
+<h6>xAxes</h6>
+The Xaxes Schema
+<p><code>xAxes</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>object[]</code></li>
+</ul>
+xAxes Type
+<p>Array type: <code>object[]</code></p>
+<p>All items must be of the type: <code>object</code> with following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ticks</code></td>
+<td>object</td>
+<td><strong>Required</strong></td>
+</tr>
+</tbody>
+</table>
+<h6>ticks</h6>
+The Ticks Schema
+<p><code>ticks</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>object</code></li>
+</ul>
+ticks Type
+<p><code>object</code> with following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fontColor</code></td>
+<td>string</td>
+<td><strong>Required</strong></td>
+<td><code>""</code></td>
+</tr>
+</tbody>
+</table>
+<h6>fontColor</h6>
+The Fontcolor Schema
+<p><code>fontColor</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>string</code></li>
+<li>default: <code>""</code></li>
+</ul>
+fontColor Type
+<p><code>string</code></p>
+fontColor Example
+<pre><code class="json language-json">rgba(0, 0, 0, 0.6)</code></pre>
+<h6>timerInterval</h6>
+Polling interval for charts
+<p><code>timerInterval</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>integer</code></li>
+<li>default: <code>0</code></li>
+</ul>
+timerInterval Type
+<p><code>integer</code></p>
+timerInterval Example
+<pre><code class="json language-json">500</code></pre>
+<h4>supplies</h4>
+<h5>List containing all supply devices</h5>
+<p><code>supplies</code></p>
+<ul>
+<li><p>is <strong>required</strong></p></li>
+<li><p>type: <code>object[]</code></p></li>
+<li><p>default: <code>null</code></p></li>
+<li><p>defined in this schema</p></li>
+</ul>
+<h5>supplies Type</h5>
+<p>Array type: <code>object[]</code></p>
+<p>All items must be of the type: <code>object</code> with following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>currentVoltage</code></td>
+<td>integer</td>
+<td><strong>Required</strong></td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>enabled</code></td>
+<td>boolean</td>
+<td><strong>Required</strong></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td>string</td>
+<td><strong>Required</strong></td>
+<td><code>""</code></td>
+</tr>
+<tr>
+<td><code>maxValue</code></td>
+<td>number</td>
+<td><strong>Required</strong></td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>minValue</code></td>
+<td>integer</td>
+<td><strong>Required</strong></td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td><strong>Required</strong></td>
+<td><code>""</code></td>
+</tr>
+<tr>
+<td><code>stepSize</code></td>
+<td>number</td>
+<td><strong>Required</strong></td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>string</td>
+<td><strong>Required</strong></td>
+<td><code>""</code></td>
+</tr>
+<tr>
+<td><code>unit</code></td>
+<td>string</td>
+<td><strong>Required</strong></td>
+<td><code>""</code></td>
+</tr>
+</tbody>
+</table>
+<h6>currentVoltage</h6>
+Current voltage of the supply (Set automatically)
+<p><code>currentVoltage</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>integer</code></li>
+<li>default: <code>0</code></li>
+</ul>
+currentVoltage Type
+<p><code>integer</code></p>
+currentVoltage Example
+<pre><code class="json language-json">2</code></pre>
+<h6>enabled</h6>
+Supply is dis/enabled
+<p><code>enabled</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>boolean</code></li>
+<li>default: <code>false</code></li>
+</ul>
+enabled Type
+<p><code>boolean</code></p>
+enabled Example
+<pre><code class="json language-json">true</code></pre>
+<h6>id</h6>
+Unique id of the supply. Must correspond with id in devices.py
+<p><code>id</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>string</code></li>
+<li>default: <code>""</code></li>
+</ul>
+id Type
+<p><code>string</code></p>
+id Example
+<pre><code class="json language-json">BBP</code></pre>
+<h6>maxValue</h6>
+Maximum voltage supply can generate
+<p><code>maxValue</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>number</code></li>
+<li>default: <code>0</code></li>
+</ul>
+maxValue Type
+<p><code>number</code></p>
+maxValue Example
+<pre><code class="json language-json">2.5</code></pre>
+<h6>minValue</h6>
+Smallest value that can be generated by the supply
+<p><code>minValue</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>integer</code></li>
+<li>default: <code>0</code></li>
+</ul>
+minValue Type
+<p><code>integer</code></p>
+minValue Example
+<pre><code class="json language-json">0</code></pre>
+<h6>name</h6>
+Name of the supply device
+<p><code>name</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>string</code></li>
+<li>default: <code>""</code></li>
+</ul>
+name Type
+<p><code>string</code></p>
+name Examples
+<pre><code class="json language-json">BodyBiasingPos</code></pre>
+<pre><code class="json language-json">BodyBiasingNeg</code></pre>
+<pre><code class="json language-json">VarSupply 1</code></pre>
+<pre><code class="json language-json">Precision Supply 1</code></pre>
+<h6>stepSize</h6>
+Smalles voltage increase that is possible
+<p><code>stepSize</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>number</code></li>
+<li>default: <code>0</code></li>
+</ul>
+stepSize Type
+<p><code>number</code></p>
+stepSize Example
+<pre><code class="json language-json">0.005</code></pre>
+<h6>type</h6>
+The type of the supply
+<p><code>type</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>string</code></li>
+<li>default: <code>""</code></li>
+</ul>
+type Type
+<p><code>string</code></p>
+type Examples
+<pre><code class="json language-json">BodyBias</code></pre>
+<pre><code class="json language-json">VarSupply</code></pre>
+<pre><code class="json language-json">PrecisionSupply</code></pre>
+<h6>unit</h6>
+Unit of the supply
+<p><code>unit</code></p>
+<ul>
+<li>is <strong>required</strong></li>
+<li>type: <code>string</code></li>
+<li>default: <code>""</code></li>
+</ul>
+unit Type
+<p><code>string</code></p>
+unit Example
+<pre><code class="json language-json">V</code></pre></div>
+
+</body>
+</html>

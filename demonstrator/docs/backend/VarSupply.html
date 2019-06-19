@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.6.2" />
 <title>flask_app.VarSupply API documentation</title>
-<meta name="description" content="" />
+<meta name="description" content="Class that emulates the VarSupply object and offers a setVoltage() function" />
 <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
 <link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
@@ -20,12 +20,18 @@
 <h1 class="title">Module <code>flask_app.VarSupply</code></h1>
 </header>
 <section id="section-intro">
+<p>Class that emulates the VarSupply object and offers a setVoltage() function</p>
 <details class="source">
 <summary>Source code</summary>
-<pre><code class="python">from flask_app.Driver.PCAL6416 import PCAL6416
+<pre><code class="python">&#34;&#34;&#34; Class that emulates the VarSupply object and offers a setVoltage() function&#34;&#34;&#34;
+from flask_app.Driver.PCAL6416 import PCAL6416
 import logging
 
 class VarSupply:
+    &#34;&#34;&#34;
+    This class emulates a VarSupply object. &lt;br&gt;
+    It provides a set voltage function, that sets the output of a VarSupply to the given voltage.
+    &#34;&#34;&#34;
     def __init__(self, address, pinAssignments, name):
         self.logger = logging.getLogger(__name__)
         self.ioExpander = PCAL6416(1, address)
@@ -33,12 +39,6 @@ class VarSupply:
         self.name = name
         for pinAss in pinAssignments:
             self.ioExpander.setToOutputPinAssignment(pinAss)
-
-    def disable(self):
-        for assignment in self.pinAssignments:
-            if (assignment.type == &#34;enable&#34;):
-                self.ioExpander.setVoltageLowOnPinAssignment(assignment)
-                return
 
     def setVoltage(self, voltage):
         # Convert voltage diff to int between 0 and 15
@@ -76,10 +76,15 @@ class VarSupply:
 <span>(</span><span>address, pinAssignments, name)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>This class emulates a VarSupply object. <br>
+It provides a set voltage function, that sets the output of a VarSupply to the given voltage.</p></section>
 <details class="source">
 <summary>Source code</summary>
 <pre><code class="python">class VarSupply:
+    &#34;&#34;&#34;
+    This class emulates a VarSupply object. &lt;br&gt;
+    It provides a set voltage function, that sets the output of a VarSupply to the given voltage.
+    &#34;&#34;&#34;
     def __init__(self, address, pinAssignments, name):
         self.logger = logging.getLogger(__name__)
         self.ioExpander = PCAL6416(1, address)
@@ -87,12 +92,6 @@ class VarSupply:
         self.name = name
         for pinAss in pinAssignments:
             self.ioExpander.setToOutputPinAssignment(pinAss)
-
-    def disable(self):
-        for assignment in self.pinAssignments:
-            if (assignment.type == &#34;enable&#34;):
-                self.ioExpander.setVoltageLowOnPinAssignment(assignment)
-                return
 
     def setVoltage(self, voltage):
         # Convert voltage diff to int between 0 and 15
@@ -117,20 +116,6 @@ class VarSupply:
 </details>
 <h3>Methods</h3>
 <dl>
-<dt id="flask_app.VarSupply.VarSupply.disable"><code class="name flex">
-<span>def <span class="ident">disable</span></span>(<span>self)</span>
-</code></dt>
-<dd>
-<section class="desc"></section>
-<details class="source">
-<summary>Source code</summary>
-<pre><code class="python">def disable(self):
-    for assignment in self.pinAssignments:
-        if (assignment.type == &#34;enable&#34;):
-            self.ioExpander.setVoltageLowOnPinAssignment(assignment)
-            return</code></pre>
-</details>
-</dd>
 <dt id="flask_app.VarSupply.VarSupply.setVoltage"><code class="name flex">
 <span>def <span class="ident">setVoltage</span></span>(<span>self, voltage)</span>
 </code></dt>
@@ -181,7 +166,6 @@ class VarSupply:
 <li>
 <h4><code><a title="flask_app.VarSupply.VarSupply" href="#flask_app.VarSupply.VarSupply">VarSupply</a></code></h4>
 <ul class="">
-<li><code><a title="flask_app.VarSupply.VarSupply.disable" href="#flask_app.VarSupply.VarSupply.disable">disable</a></code></li>
 <li><code><a title="flask_app.VarSupply.VarSupply.setVoltage" href="#flask_app.VarSupply.VarSupply.setVoltage">setVoltage</a></code></li>
 </ul>
 </li>

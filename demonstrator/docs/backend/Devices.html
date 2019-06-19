@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.6.2" />
 <title>flask_app.Devices API documentation</title>
-<meta name="description" content="" />
+<meta name="description" content="Module that contain all devices used on the PCB" />
 <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
 <link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
@@ -20,9 +20,11 @@
 <h1 class="title">Module <code>flask_app.Devices</code></h1>
 </header>
 <section id="section-intro">
+<p>Module that contain all devices used on the PCB</p>
 <details class="source">
 <summary>Source code</summary>
-<pre><code class="python">from .Driver.LTC2631 import LTC2631
+<pre><code class="python">&#34;&#34;&#34; Module that contain all devices used on the PCB &#34;&#34;&#34;
+from .Driver.LTC2631 import LTC2631
 from .Driver.PCAL6416 import PCAL6416, PinAssignment
 from .Driver.ADS8885 import ADS8885, ResolutionScaler
 from .VarSupply import VarSupply
@@ -37,11 +39,7 @@ cs1 = 8
 cs2 = 7
 cs3 = 5
 cs4 = 6
-    # # if(self.name == &#34;vm1&#34;):
-    # #     return value * 2.3307 - 0.1192 #* 3.133 - 40.6;
-    # # elif(self.name == &#34;vm2&#34;):
-    # #     return value * 2.3487 + 0.0375 #* 3.133 - 40.6;
-    # # return value;
+
 resolutionScalersVm1 = {
     # 5V
     3: ResolutionScaler(2.3361, -0.11733),
@@ -72,7 +70,6 @@ resolutionScalersCm4 = {
 }
 
 
-&#34;&#34;&#34; Contains all ADS8885 measurement Devices. &#34;&#34;&#34;
 measurementDevices = {
     &#34;vm1&#34;: ADS8885(&#39;vm1&#39;,
             0,
@@ -108,6 +105,7 @@ measurementDevices = {
            resolutionScalersCm4
        )
     }
+&#34;&#34;&#34; Contains all ADS8885 measurement Devices, that are built onto the board. This Object is used in the server.py file&#34;&#34;&#34;
 
 bodyBiasingControl = LTC2631(address = 0b0010000)
 bodyBiasingNegControl = LTC2631(address = 0b0010001)
@@ -115,13 +113,13 @@ precisionSupply1Control = LTC2631(address = 0b0010010)
 precisionSupply2Control = LTC2631(address= 0b0010011)
 
 
-&#34;&#34;&#34; Voltage supplies that use an LTC chip &#34;&#34;&#34;
 LTCDevices = {
     &#34;BBP&#34;: bodyBiasingControl,
     &#34;BBN&#34;: bodyBiasingNegControl,
     &#34;PS1&#34;: precisionSupply1Control,
     &#34;PS2&#34;: precisionSupply2Control
 }
+&#34;&#34;&#34; Voltage supplies that use an LTC chip. This Object is used in the server.py file &#34;&#34;&#34;
 
 
 
@@ -149,12 +147,12 @@ pinAssignements3 = [
 ]
 
 
-&#34;&#34;&#34; Voltage supplies that do not use an LTC chip but are controlled using IO Pins from the IO Expander &#34;&#34;&#34;
 varSupplies = {
     &#34;1&#34;: VarSupply(0b0100000, pinAssignements1, &#34;VarSupply1&#34;),
     &#34;2&#34;: VarSupply(0b0100000, pinAssignements2, &#34;VarSupply2&#34;),
     &#34;3&#34;: VarSupply(0b0100000, pinAssignements3, &#34;VarSupply3&#34;)
-}</code></pre>
+}
+&#34;&#34;&#34; Voltage supplies that do not use an LTC chip but are controlled using IO Pins from the IO Expander &#34;&#34;&#34;</code></pre>
 </details>
 </section>
 <section>
@@ -162,17 +160,17 @@ varSupplies = {
 <section>
 <h2 class="section-title" id="header-variables">Global variables</h2>
 <dl>
-<dt id="flask_app.Devices.pinAssignements3"><code class="name">var <span class="ident">pinAssignements3</span></code></dt>
+<dt id="flask_app.Devices.LTCDevices"><code class="name">var <span class="ident">LTCDevices</span></code></dt>
+<dd>
+<section class="desc"><p>Voltage supplies that use an LTC chip. This Object is used in the server.py file</p></section>
+</dd>
+<dt id="flask_app.Devices.measurementDevices"><code class="name">var <span class="ident">measurementDevices</span></code></dt>
+<dd>
+<section class="desc"><p>Contains all ADS8885 measurement Devices, that are built onto the board. This Object is used in the server.py file</p></section>
+</dd>
+<dt id="flask_app.Devices.varSupplies"><code class="name">var <span class="ident">varSupplies</span></code></dt>
 <dd>
 <section class="desc"><p>Voltage supplies that do not use an LTC chip but are controlled using IO Pins from the IO Expander</p></section>
-</dd>
-<dt id="flask_app.Devices.precisionSupply2Control"><code class="name">var <span class="ident">precisionSupply2Control</span></code></dt>
-<dd>
-<section class="desc"><p>Voltage supplies that use an LTC chip</p></section>
-</dd>
-<dt id="flask_app.Devices.resolutionScalersCm4"><code class="name">var <span class="ident">resolutionScalersCm4</span></code></dt>
-<dd>
-<section class="desc"><p>Contains all ADS8885 measurement Devices.</p></section>
 </dd>
 </dl>
 </section>
@@ -194,9 +192,9 @@ varSupplies = {
 </li>
 <li><h3><a href="#header-variables">Global variables</a></h3>
 <ul class="">
-<li><code><a title="flask_app.Devices.pinAssignements3" href="#flask_app.Devices.pinAssignements3">pinAssignements3</a></code></li>
-<li><code><a title="flask_app.Devices.precisionSupply2Control" href="#flask_app.Devices.precisionSupply2Control">precisionSupply2Control</a></code></li>
-<li><code><a title="flask_app.Devices.resolutionScalersCm4" href="#flask_app.Devices.resolutionScalersCm4">resolutionScalersCm4</a></code></li>
+<li><code><a title="flask_app.Devices.LTCDevices" href="#flask_app.Devices.LTCDevices">LTCDevices</a></code></li>
+<li><code><a title="flask_app.Devices.measurementDevices" href="#flask_app.Devices.measurementDevices">measurementDevices</a></code></li>
+<li><code><a title="flask_app.Devices.varSupplies" href="#flask_app.Devices.varSupplies">varSupplies</a></code></li>
 </ul>
 </li>
 </ul>
