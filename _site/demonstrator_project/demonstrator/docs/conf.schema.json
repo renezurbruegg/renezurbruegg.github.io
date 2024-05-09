@@ -1,0 +1,830 @@
+{
+    "definitions": {},
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://example.com/root.json",
+    "type": "object",
+    "title": "The Root Schema",
+    "required": [
+        "charts",
+        "supplies",
+        "deployment",
+        "general",
+        "devices"
+    ],
+    "properties": {
+        "charts": {
+            "$id": "#/properties/charts",
+            "type": "array",
+            "title": "The Charts Schema",
+            "items": {
+                "$id": "#/properties/charts/items",
+                "type": "object",
+                "title": "The Items Schema",
+                "required": [
+                    "name",
+                    "col",
+                    "maxValues",
+                    "datasets",
+                    "chartId",
+                    "axes"
+                ],
+                "properties": {
+                    "name": {
+                        "$id": "#/properties/charts/items/properties/name",
+                        "type": "string",
+                        "title": "The Name Schema",
+                        "default": "",
+                        "examples": [
+                            "Voltage chart"
+                        ]
+                    },
+                    "col": {
+                        "$id": "#/properties/charts/items/properties/col",
+                        "type": "object",
+                        "title": "Chart Column",
+                        "description": "Defines the width of the cahrt",
+                        "default": null,
+                        "required": [
+                            "md",
+                            "lg",
+                            "xs",
+                            "sm"
+                        ],
+                        "properties": {
+                            "md": {
+                                "$id": "#/properties/charts/items/properties/col/properties/md",
+                                "type": "integer",
+                                "title": "Medium ",
+                                "description": "Width in medium Devices [0-12]",
+                                "default": 0,
+                                "examples": [
+                                    12
+                                ]
+                            },
+                            "lg": {
+                                "$id": "#/properties/charts/items/properties/col/properties/lg",
+                                "type": "integer",
+                                "title": "Large",
+                                "description": "Width in large devices [0-12]",
+                                "default": 0,
+                                "examples": [
+                                    6
+                                ]
+                            },
+                            "xs": {
+                                "$id": "#/properties/charts/items/properties/col/properties/xs",
+                                "type": "integer",
+                                "title": "X-tra small",
+                                "description": "Width in really small devices [0-12]",
+                                "default": 0,
+                                "examples": [
+                                    12
+                                ]
+                            },
+                            "sm": {
+                                "$id": "#/properties/charts/items/properties/col/properties/sm",
+                                "type": "integer",
+                                "title": "Small",
+                                "description": "Width in small devices [0-12]",
+                                "default": 0,
+                                "examples": [
+                                    12
+                                ]
+                            }
+                        }
+                    },
+                    "maxValues": {
+                        "$id": "#/properties/charts/items/properties/maxValues",
+                        "type": "integer",
+                        "title": "Maximum data points",
+                        "description": "Max amount of datapoints that are visible in this chart",
+                        "default": 0,
+                        "examples": [
+                            40
+                        ]
+                    },
+                    "datasets": {
+                        "$id": "#/properties/charts/items/properties/datasets",
+                        "type": "array",
+                        "title": "List containing all datasets that belong to this chart",
+                        "default": null,
+                        "items": {
+                            "$id": "#/properties/charts/items/properties/datasets/items",
+                            "type": "object",
+                            "title": "The Items Schema",
+                            "required": [
+                                "sourceId",
+                                "name",
+                                "handler",
+                                "autoLabel",
+                                "autoRange",
+                                "unit",
+                                "negRange",
+                                "datasetId",
+                                "borderColor",
+                                "chartDataset",
+                                "customDataHandlerEnabled"
+                            ],
+                            "properties": {
+                                "sourceId": {
+                                    "$id": "#/properties/charts/items/properties/datasets/items/properties/sourceId",
+                                    "type": "string",
+                                    "title": "ID of the measurement device that collects data for this dataset",
+                                    "default": "",
+                                    "examples": [
+                                        "vm1"
+                                    ]
+                                },
+                                "name": {
+                                    "$id": "#/properties/charts/items/properties/datasets/items/properties/name",
+                                    "type": "string",
+                                    "title": "Name of the Dataset",
+                                    "default": "",
+                                    "examples": [
+                                        "Voltage vm1"
+                                    ]
+                                },
+                                "handler": {
+                                    "$id": "#/properties/charts/items/properties/datasets/items/properties/handler",
+                                    "type": "string",
+                                    "title": "Custom javascript function to transform measurements",
+                                    "default": "",
+                                    "examples": [
+                                        ""
+                                    ]
+                                },
+                                "autoLabel": {
+                                    "$id": "#/properties/charts/items/properties/datasets/items/properties/autoLabel",
+                                    "type": "boolean",
+                                    "title": "Generate dataset label automatically",
+                                    "default": false,
+                                    "examples": [
+                                        true
+                                    ]
+                                },
+                                "autoRange": {
+                                    "$id": "#/properties/charts/items/properties/datasets/items/properties/autoRange",
+                                    "type": "boolean",
+                                    "title": "Scale axis automatically to measurement resolution",
+                                    "default": false,
+                                    "examples": [
+                                        true
+                                    ]
+                                },
+                                "unit": {
+                                    "$id": "#/properties/charts/items/properties/datasets/items/properties/unit",
+                                    "type": "string",
+                                    "title": "Unit of this dataset",
+                                    "default": "",
+                                    "examples": [
+                                        "mV"
+                                    ]
+                                },
+                                "negRange": {
+                                    "$id": "#/properties/charts/items/properties/datasets/items/properties/negRange",
+                                    "type": "boolean",
+                                    "title": "Enable negativ ranges in axis",
+                                    "default": false,
+                                    "examples": [
+                                        false
+                                    ]
+                                },
+                                "datasetId": {
+                                    "$id": "#/properties/charts/items/properties/datasets/items/properties/datasetId",
+                                    "type": "string",
+                                    "title": "Unique datset id",
+                                    "default": "",
+                                    "examples": [
+                                        "ADS1dataset"
+                                    ]
+                                },
+                                "borderColor": {
+                                    "$id": "#/properties/charts/items/properties/datasets/items/properties/borderColor",
+                                    "type": "string",
+                                    "title": "Linecolor of the dataset",
+                                    "default": "",
+                                    "examples": [
+                                        "#2196f3"
+                                    ]
+                                },
+                                "chartDataset": {
+                                    "$id": "#/properties/charts/items/properties/datasets/items/properties/chartDataset",
+                                    "type": "object",
+                                    "title": "ChartJs object that gets transmitted to the chart",
+                                    "default": null,
+                                    "required": [
+                                        "yAxisID",
+                                        "currValue",
+                                        "fill",
+                                        "label",
+                                        "borderColor"
+                                    ],
+                                    "properties": {
+                                        "yAxisID": {
+                                            "$id": "#/properties/charts/items/properties/datasets/items/properties/chartDataset/properties/yAxisID",
+                                            "type": "string",
+                                            "title": "ID of the corresponding axis",
+                                            "default": "",
+                                            "examples": [
+                                                "yAxis1"
+                                            ]
+                                        },
+                                        "currValue": {
+                                            "$id": "#/properties/charts/items/properties/datasets/items/properties/chartDataset/properties/currValue",
+                                            "type": "number",
+                                            "title": "Current value, gets set automatically",
+                                            "default": 0,
+                                            "examples": [
+                                                24.536
+                                            ]
+                                        },
+                                        "fill": {
+                                            "$id": "#/properties/charts/items/properties/datasets/items/properties/chartDataset/properties/fill",
+                                            "type": "boolean",
+                                            "title": "Fill area under line in chart",
+                                            "default": false,
+                                            "examples": [
+                                                false
+                                            ]
+                                        },
+                                        "label": {
+                                            "$id": "#/properties/charts/items/properties/datasets/items/properties/chartDataset/properties/label",
+                                            "type": "string",
+                                            "title": "Label of the dataset",
+                                            "default": "",
+                                            "examples": [
+                                                "Voltage vm1[mV]"
+                                            ]
+                                        },
+                                        "borderColor": {
+                                            "$id": "#/properties/charts/items/properties/datasets/items/properties/chartDataset/properties/borderColor",
+                                            "type": "string",
+                                            "title": "Color of the line in the graph",
+                                            "default": "",
+                                            "examples": [
+                                                "#0618f9"
+                                            ]
+                                        }
+                                    }
+                                },
+                                "customDataHandlerEnabled": {
+                                    "$id": "#/properties/charts/items/properties/datasets/items/properties/customDataHandlerEnabled",
+                                    "type": "boolean",
+                                    "title": "Enable custom handler function for this dataset",
+                                    "default": false,
+                                    "examples": [
+                                        false
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "chartId": {
+                        "$id": "#/properties/charts/items/properties/chartId",
+                        "type": "string",
+                        "title": "Unique ID of the Chart",
+                        "default": "",
+                        "examples": [
+                            "Chart#1"
+                        ]
+                    },
+                    "axes": {
+                        "$id": "#/properties/charts/items/properties/axes",
+                        "type": "array",
+                        "title": "List containing all axis of this chart",
+                        "default": null,
+                        "items": {
+                            "$id": "#/properties/charts/items/properties/axes/items",
+                            "type": "object",
+                            "title": "The Items Schema",
+                            "required": [
+                                "id",
+                                "position"
+                            ],
+                            "properties": {
+                                "id": {
+                                    "$id": "#/properties/charts/items/properties/axes/items/properties/id",
+                                    "type": "string",
+                                    "title": "Unique axis id",
+                                    "default": "",
+                                    "examples": [
+                                        "yAxis1"
+                                    ]
+                                },
+                                "position": {
+                                    "$id": "#/properties/charts/items/properties/axes/items/properties/position",
+                                    "type": "string",
+                                    "title": "Position of the chart (left/right)",
+                                    "default": "",
+                                    "examples": [
+                                        "left",
+                                        "right"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "supplies": {
+            "$id": "#/properties/supplies",
+            "type": "array",
+            "title": "List containing all supply devices ",
+            "default": null,
+            "items": {
+                "$id": "#/properties/supplies/items",
+                "type": "object",
+                "title": "The Items Schema",
+                "required": [
+                    "name",
+                    "enabled",
+                    "type",
+                    "unit",
+                    "maxValue",
+                    "currentVoltage",
+                    "id",
+                    "stepSize",
+                    "minValue"
+                ],
+                "properties": {
+                    "name": {
+                        "$id": "#/properties/supplies/items/properties/name",
+                        "type": "string",
+                        "title": "Name of the supply device",
+                        "default": "",
+                        "examples": [
+                            "BodyBiasingPos",
+                            "BodyBiasingNeg",
+                            "VarSupply 1",
+                            "Precision Supply 1"
+                        ]
+                    },
+                    "enabled": {
+                        "$id": "#/properties/supplies/items/properties/enabled",
+                        "type": "boolean",
+                        "title": "Supply is dis/enabled",
+                        "default": false,
+                        "examples": [
+                            true
+                        ]
+                    },
+                    "type": {
+                        "$id": "#/properties/supplies/items/properties/type",
+                        "type": "string",
+                        "title": "The type of the supply",
+                        "default": "",
+                        "examples": [
+                            "BodyBias",
+                            "VarSupply",
+                            "PrecisionSupply"
+                        ]
+                    },
+                    "unit": {
+                        "$id": "#/properties/supplies/items/properties/unit",
+                        "type": "string",
+                        "title": "Unit of the supply",
+                        "default": "",
+                        "examples": [
+                            "V"
+                        ]
+                    },
+                    "maxValue": {
+                        "$id": "#/properties/supplies/items/properties/maxValue",
+                        "type": "number",
+                        "title": "Maximum voltage supply can generate",
+                        "default": 0,
+                        "examples": [
+                            2.5
+                        ]
+                    },
+                    "currentVoltage": {
+                        "$id": "#/properties/supplies/items/properties/currentVoltage",
+                        "type": "integer",
+                        "title": "Current voltage of the supply (Set automatically)",
+                        "default": 0,
+                        "examples": [
+                            2
+                        ]
+                    },
+                    "id": {
+                        "$id": "#/properties/supplies/items/properties/id",
+                        "type": "string",
+                        "title": "Unique id of the supply. Must correspond with id in devices.py",
+                        "default": "",
+                        "examples": [
+                            "BBP"
+                        ]
+                    },
+                    "stepSize": {
+                        "$id": "#/properties/supplies/items/properties/stepSize",
+                        "type": "number",
+                        "title": "Smalles voltage increase that is possible",
+                        "default": 0,
+                        "examples": [
+                            0.005
+                        ]
+                    },
+                    "minValue": {
+                        "$id": "#/properties/supplies/items/properties/minValue",
+                        "type": "integer",
+                        "title": "Smallest value that can be generated by the supply",
+                        "default": 0,
+                        "examples": [
+                            0
+                        ]
+                    }
+                }
+            }
+        },
+        "deployment": {
+            "$id": "#/properties/deployment",
+            "type": "object",
+            "title": "The Deployment Schema",
+            "required": [
+                "apiLink",
+                "protocol",
+                "apiPort",
+                "host"
+            ],
+            "properties": {
+                "apiLink": {
+                    "$id": "#/properties/deployment/properties/apiLink",
+                    "type": "string",
+                    "title": "Link to the api functions",
+                    "default": "",
+                    "examples": [
+                        "/api"
+                    ]
+                },
+                "protocol": {
+                    "$id": "#/properties/deployment/properties/protocol",
+                    "type": "string",
+                    "title": "Protocol to use to connect to the backend",
+                    "default": "",
+                    "examples": [
+                        "http"
+                    ]
+                },
+                "apiPort": {
+                    "$id": "#/properties/deployment/properties/apiPort",
+                    "type": "string",
+                    "title": "Port on which backend is running",
+                    "default": "",
+                    "examples": [
+                        "8080"
+                    ]
+                },
+                "host": {
+                    "$id": "#/properties/deployment/properties/host",
+                    "type": "string",
+                    "title": "IP of the backend. Gets set automatically from hosts.json file",
+                    "default": "",
+                    "examples": [
+                        "localhost"
+                    ]
+                }
+            }
+        },
+        "general": {
+            "$id": "#/properties/general",
+            "type": "object",
+            "title": "The General Schema",
+            "required": [
+                "timerInterval",
+                "chartOptions",
+                "currentResolutionMap",
+                "maxDataPoints",
+                "voltageResolutionMap"
+            ],
+            "properties": {
+                "timerInterval": {
+                    "$id": "#/properties/general/properties/timerInterval",
+                    "type": "integer",
+                    "title": "Polling interval for charts",
+                    "default": 0,
+                    "examples": [
+                        500
+                    ]
+                },
+                "chartOptions": {
+                    "$id": "#/properties/general/properties/chartOptions",
+                    "type": "object",
+                    "title": "The Chartoptions Schema",
+                    "required": [
+                        "legend",
+                        "animation",
+                        "scales",
+                        "responsive"
+                    ],
+                    "properties": {
+                        "legend": {
+                            "$id": "#/properties/general/properties/chartOptions/properties/legend",
+                            "type": "object",
+                            "title": "The Legend Schema",
+                            "required": [
+                                "labels",
+                                "display"
+                            ],
+                            "properties": {
+                                "labels": {
+                                    "$id": "#/properties/general/properties/chartOptions/properties/legend/properties/labels",
+                                    "type": "object",
+                                    "title": "The Labels Schema",
+                                    "required": [
+                                        "fontColor"
+                                    ],
+                                    "properties": {
+                                        "fontColor": {
+                                            "$id": "#/properties/general/properties/chartOptions/properties/legend/properties/labels/properties/fontColor",
+                                            "type": "string",
+                                            "title": "The Fontcolor Schema",
+                                            "default": "",
+                                            "examples": [
+                                                "#000080"
+                                            ]
+                                        }
+                                    }
+                                },
+                                "display": {
+                                    "$id": "#/properties/general/properties/chartOptions/properties/legend/properties/display",
+                                    "type": "boolean",
+                                    "title": "The Display Schema",
+                                    "default": false,
+                                    "examples": [
+                                        true
+                                    ]
+                                }
+                            }
+                        },
+                        "animation": {
+                            "$id": "#/properties/general/properties/chartOptions/properties/animation",
+                            "type": "object",
+                            "title": "The Animation Schema",
+                            "required": [
+                                "duration"
+                            ],
+                            "properties": {
+                                "duration": {
+                                    "$id": "#/properties/general/properties/chartOptions/properties/animation/properties/duration",
+                                    "type": "integer",
+                                    "title": "The Duration Schema",
+                                    "default": 0,
+                                    "examples": [
+                                        0
+                                    ]
+                                }
+                            }
+                        },
+                        "scales": {
+                            "$id": "#/properties/general/properties/chartOptions/properties/scales",
+                            "type": "object",
+                            "title": "The Scales Schema",
+                            "required": [
+                                "xAxes",
+                                "yAxes"
+                            ],
+                            "properties": {
+                                "xAxes": {
+                                    "$id": "#/properties/general/properties/chartOptions/properties/scales/properties/xAxes",
+                                    "type": "array",
+                                    "title": "The Xaxes Schema",
+                                    "items": {
+                                        "$id": "#/properties/general/properties/chartOptions/properties/scales/properties/xAxes/items",
+                                        "type": "object",
+                                        "title": "The Items Schema",
+                                        "required": [
+                                            "ticks",
+                                            "gridLines"
+                                        ],
+                                        "properties": {
+                                            "ticks": {
+                                                "$id": "#/properties/general/properties/chartOptions/properties/scales/properties/xAxes/items/properties/ticks",
+                                                "type": "object",
+                                                "title": "The Ticks Schema",
+                                                "required": [
+                                                    "fontColor",
+                                                    "fontStyle",
+                                                    "padding"
+                                                ],
+                                                "properties": {
+                                                    "fontColor": {
+                                                        "$id": "#/properties/general/properties/chartOptions/properties/scales/properties/xAxes/items/properties/ticks/properties/fontColor",
+                                                        "type": "string",
+                                                        "title": "The Fontcolor Schema",
+                                                        "default": "",
+                                                        "examples": [
+                                                            "rgba(0,0,0,0.6)"
+                                                        ]
+                                                    }
+                                                },
+                                                "fontStyle": {
+                                                    "$id": "#/properties/general/properties/chartOptions/properties/scales/properties/xAxes/items/properties/ticks/properties/fontStyle",
+                                                    "type": "string",
+                                                    "title": "The Fontstyle Schema",
+                                                    "default": "",
+                                                    "examples": [
+                                                        "bold"
+                                                    ]
+                                                },
+                                                "padding": {
+                                                    "$id": "#/properties/general/properties/chartOptions/properties/scales/properties/xAxes/items/properties/ticks/properties/padding",
+                                                    "type": "integer",
+                                                    "title": "The Padding Schema",
+                                                    "default": 0,
+                                                    "examples": [
+                                                        0
+                                                    ]
+                                                }
+                                            }
+                                        },
+                                        "gridLines": {
+                                            "$id": "#/properties/general/properties/chartOptions/properties/scales/properties/xAxes/items/properties/gridLines",
+                                            "type": "object",
+                                            "title": "The Gridlines Schema",
+                                            "required": [
+                                                "display"
+                                            ],
+                                            "properties": {
+                                                "display": {
+                                                    "$id": "#/properties/general/properties/chartOptions/properties/scales/properties/xAxes/items/properties/gridLines/properties/display",
+                                                    "type": "boolean",
+                                                    "title": "The Display Schema",
+                                                    "default": false,
+                                                    "examples": [
+                                                        false
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "yAxes": {
+                                "$id": "#/properties/general/properties/chartOptions/properties/scales/properties/yAxes",
+                                "type": "array",
+                                "title": "The Yaxes Schema",
+                                "items": {
+                                    "$id": "#/properties/general/properties/chartOptions/properties/scales/properties/yAxes/items",
+                                    "type": "object",
+                                    "title": "The Items Schema",
+                                    "required": [
+                                        "id",
+                                        "position",
+                                        "type"
+                                    ],
+                                    "properties": {
+                                        "id": {
+                                            "$id": "#/properties/general/properties/chartOptions/properties/scales/properties/yAxes/items/properties/id",
+                                            "type": "string",
+                                            "title": "The Id Schema",
+                                            "default": "",
+                                            "examples": [
+                                                "Left"
+                                            ]
+                                        },
+                                        "position": {
+                                            "$id": "#/properties/general/properties/chartOptions/properties/scales/properties/yAxes/items/properties/position",
+                                            "type": "string",
+                                            "title": "The Position Schema",
+                                            "default": "",
+                                            "examples": [
+                                                "left"
+                                            ]
+                                        },
+                                        "type": {
+                                            "$id": "#/properties/general/properties/chartOptions/properties/scales/properties/yAxes/items/properties/type",
+                                            "type": "string",
+                                            "title": "The Type Schema",
+                                            "default": "",
+                                            "examples": [
+                                                "linear"
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "responsive": {
+                        "$id": "#/properties/general/properties/chartOptions/properties/responsive",
+                        "type": "boolean",
+                        "title": "The Responsive Schema",
+                        "default": false,
+                        "examples": [
+                            true
+                        ]
+                    }
+                }
+            },
+            "currentResolutionMap": {
+                "$id": "#/properties/general/properties/currentResolutionMap",
+                "type": "array",
+                "title": "Maps resolution (int) into human readable name",
+                "default": null,
+                "items": {
+                    "$id": "#/properties/general/properties/currentResolutionMap/items",
+                    "type": "string",
+                    "title": "The Items Schema",
+                    "default": "",
+                    "examples": [
+                        "500uA",
+                        "50mA"
+                    ]
+                }
+            },
+            "maxDataPoints": {
+                "$id": "#/properties/general/properties/maxDataPoints",
+                "type": "integer",
+                "title": "The Maxdatapoints Schema",
+                "default": 0,
+                "examples": [
+                    50
+                ]
+            },
+            "voltageResolutionMap": {
+                "$id": "#/properties/general/properties/voltageResolutionMap",
+                "type": "array",
+                "title": "Maps resolution (int) into a human readable name",
+                "default": null,
+                "items": {
+                    "$id": "#/properties/general/properties/voltageResolutionMap/items",
+                    "type": "string",
+                    "title": "The Items Schema",
+                    "default": "",
+                    "examples": [
+                        "50mV",
+                        "500mV",
+                        "5V"
+                    ]
+                }
+            }
+        }
+    },
+    "devices": {
+        "$id": "#/properties/devices",
+        "type": "array",
+        "title": "List containing all measurement devices",
+        "default": null,
+        "items": {
+            "$id": "#/properties/devices/items",
+            "type": "object",
+            "title": "The Items Schema",
+            "required": [
+                "name",
+                "currentResolution",
+                "autoResolution",
+                "deviceId",
+                "type"
+            ],
+            "properties": {
+                "name": {
+                    "$id": "#/properties/devices/items/properties/name",
+                    "type": "string",
+                    "title": "Name of the device",
+                    "default": "",
+                    "examples": [
+                        "ADS1"
+                    ]
+                },
+                "currentResolution": {
+                    "$id": "#/properties/devices/items/properties/currentResolution",
+                    "type": "integer",
+                    "title": "Current resolution of the device ",
+                    "default": 0,
+                    "examples": [
+                        3
+                    ]
+                },
+                "autoResolution": {
+                    "$id": "#/properties/devices/items/properties/autoResolution",
+                    "type": "boolean",
+                    "title": "Switch resolution automatically",
+                    "default": false,
+                    "examples": [
+                        false
+                    ]
+                },
+                "deviceId": {
+                    "$id": "#/properties/devices/items/properties/deviceId",
+                    "type": "string",
+                    "title": "Unique device id, must correspond with the one stored in devices.py",
+                    "default": "",
+                    "examples": [
+                        "vm1"
+                    ]
+                },
+                "type": {
+                    "$id": "#/properties/devices/items/properties/type",
+                    "type": "string",
+                    "title": "Type of the measurement",
+                    "default": "",
+                    "examples": [
+                        "voltage",
+                        "current"
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,11 @@
+main:
+
+  - title: Embodied active domain adaptation for semantic segmentation via informative path planning
+    authors: René Zurbrügg, Hermann Blum, Cesar Cadena, Roland Siegwart, Lukas Schmid
+    conference_short: RA-L
+    conference: IEEE Robotics and Automation Letters (RA-L, 2022)
+    pdf: https://arxiv.org/abs/2203.00549
+    code: https://github.com/ethz-asl/active_learning_for_segmentation
+    bibtex: https://scholar.googleusercontent.com/scholar.bib?q=info:qikYTw_zbrcJ:scholar.google.com/&output=citation&scisdr=ClFz2Zf-EKLu6pLPz-U:AFWwaeYAAAAAZjzJ1-U7-4deHl8290CqonPm_xE&scisig=AFWwaeYAAAAAZjzJ11K1g-vOyxVtkligmt1ZAVg&scisf=4&ct=citation&cd=-1&hl=en
+    image: ./assets/img/ral22.png
+    notes: 
