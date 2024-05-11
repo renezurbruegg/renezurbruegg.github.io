@@ -1,12 +1,22 @@
 main:
+  - title: "ICG-Net: A"
+    authors: 
+    conference_short: ICRA
+    conference: IEEE International Conference on Robotics and Automation (ICRA, 2024)
+    pdf: https://arxiv.org/abs/2401.09939
+    code: https://github.com/renezurbruegg/icg_benchmark
+    page: https://icgraspnet.github.io/ 
+    bibtex: 
+    image: ./assets/img/icra24.png
+    notes: 
 
   - title: "Chronos and CRS: Design of a miniature car-like robot and a software framework for single and multi-agent robotics and control"
     authors: Andrea Carron, Sabrina Bodmer, Lukas Vogel, René Zurbrügg, David Helm, Rahel Rickenbach, Simon Muntwiler, Jerome Sieber, Melanie N. Zeilinger
     conference_short: ICRA
     conference: IEEE International Conference on Robotics and Automation (ICRA, 2023)
-    pdf: https://arxiv.org/abs/2203.00549
-    code: https://github.com/ethz-asl/active_learning_for_segmentation
-    bibtex: https://scholar.googleusercontent.com/scholar.bib?q=info:qikYTw_zbrcJ:scholar.google.com/&output=citation&scisdr=ClFz2Zf-EKLu6pLPz-U:AFWwaeYAAAAAZjzJ1-U7-4deHl8290CqonPm_xE&scisig=AFWwaeYAAAAAZjzJ11K1g-vOyxVtkligmt1ZAVg&scisf=4&ct=citation&cd=-1&hl=en
+    pdf: https://arxiv.org/abs/2209.12048
+    code: https://gitlab.ethz.ch/ics/crs
+    bibtex: https://scholar.googleusercontent.com/scholar.bib?q=info:d4L1D63BgCUJ:scholar.google.com/&output=citation&scisdr=ClGelFyXEL-pxo4dSds:AFWwaeYAAAAAZj8bUdtTPTCU5VkcKpG5c0NrHS8&scisig=AFWwaeYAAAAAZj8bUX_rg9wniIGhW2b0o64Lq6k&scisf=4&ct=citation&cd=-1&hl=en
     image: ./assets/img/icra23.png
     notes: 
 
