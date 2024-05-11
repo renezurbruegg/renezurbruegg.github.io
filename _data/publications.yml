@@ -1,5 +1,15 @@
 main:
 
+  - title: "Chronos and CRS: Design of a miniature car-like robot and a software framework for single and multi-agent robotics and control"
+    authors: Andrea Carron, Sabrina Bodmer, Lukas Vogel, René Zurbrügg, David Helm, Rahel Rickenbach, Simon Muntwiler, Jerome Sieber, Melanie N. Zeilinger
+    conference_short: ICRA
+    conference: IEEE International Conference on Robotics and Automation (ICRA, 2023)
+    pdf: https://arxiv.org/abs/2203.00549
+    code: https://github.com/ethz-asl/active_learning_for_segmentation
+    bibtex: https://scholar.googleusercontent.com/scholar.bib?q=info:qikYTw_zbrcJ:scholar.google.com/&output=citation&scisdr=ClFz2Zf-EKLu6pLPz-U:AFWwaeYAAAAAZjzJ1-U7-4deHl8290CqonPm_xE&scisig=AFWwaeYAAAAAZjzJ11K1g-vOyxVtkligmt1ZAVg&scisf=4&ct=citation&cd=-1&hl=en
+    image: ./assets/img/icra23.png
+    notes: 
+
   - title: Embodied active domain adaptation for semantic segmentation via informative path planning
     authors: René Zurbrügg, Hermann Blum, Cesar Cadena, Roland Siegwart, Lukas Schmid
     conference_short: RA-L
@@ -8,4 +18,16 @@ main:
     code: https://github.com/ethz-asl/active_learning_for_segmentation
     bibtex: https://scholar.googleusercontent.com/scholar.bib?q=info:qikYTw_zbrcJ:scholar.google.com/&output=citation&scisdr=ClFz2Zf-EKLu6pLPz-U:AFWwaeYAAAAAZjzJ1-U7-4deHl8290CqonPm_xE&scisig=AFWwaeYAAAAAZjzJ11K1g-vOyxVtkligmt1ZAVg&scisf=4&ct=citation&cd=-1&hl=en
     image: ./assets/img/ral22.png
+    notes: 
+
+
+  - title: Self-improving Semantic Perception for Indoor Localisation
+    authors: Hermann Blum, Francesco Milano, René Zurbrügg, Roland Siegwart, Cesar Cadena, Abel Gawel
+
+    conference_short: CORL
+    conference: Conference on Robot Learning (CoRL, 2021)
+    pdf: https://arxiv.org/abs/2105.01595
+    code: https://github.com/ethz-asl/background_foreground_segmentation
+    bibtex: https://scholar.googleusercontent.com/scholar.bib?q=info:lOe4Vs7xJi8J:scholar.google.com/&output=citation&scisdr=ClGelFyXEL-pxo4fcHs:AFWwaeYAAAAAZj8ZaHu-OIqRJ4H9v_CNel5DjRU&scisig=AFWwaeYAAAAAZj8ZaARxgatYa07Hc7jJUYiHFrU&scisf=4&ct=citation&cd=-1&hl=en
+    image: ./assets/img/corl21.png
     notes: 
