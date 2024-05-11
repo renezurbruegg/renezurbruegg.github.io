@@ -3,7 +3,6 @@
 <div class="publications">
 <ol class="bibliography">
 
-coming soon
 {% for link in site.data.publications.main %}
 
 <li>
