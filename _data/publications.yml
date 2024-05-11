@@ -1,6 +1,6 @@
 main:
-  - title: "ICG-Net: A"
-    authors: 
+  - title: "ICGNet: A Unified Approach for Instance-Centric Grasping" 
+    authors: René Zurbrügg, Yifan Liu, Francis Engelmann, Suryansh Kumar, Marco Hutter, Vaishakh Patil, Fisher Yu
     conference_short: ICRA
     conference: IEEE International Conference on Robotics and Automation (ICRA, 2024)
     pdf: https://arxiv.org/abs/2401.09939
